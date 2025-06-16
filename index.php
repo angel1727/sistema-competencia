@@ -138,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="d-grid">
               <button type="submit" class="btn btn-primary">Ingresar</button>
-              <button onclick="window.location.href='index.html'" class="nav-link">
+              <button onclick="window.location.href='landing.html'" class="nav-link">
               Regresar
               </button>
 
