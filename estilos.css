@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.form-container {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  position: relative;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+#addFormBtn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#addFormBtn:hover {
+  background-color: #218838;
+}
+
+.removeFormBtn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.removeFormBtn:hover {
+  background-color: #c82333;
+}
+
+.generated-fields {
+  margin-top: 10px;
+  padding-left: 10px;
+  border-left: 2px solid #ccc;
+}
+

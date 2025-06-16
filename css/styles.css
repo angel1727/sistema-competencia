@@ -1,0 +1,515 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,800;1,500&display=swap');
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Body con espacio para navbar fijo */
+body {
+  padding-top: 70px;
+  /* Ajusta según la altura real de tu navbar */
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Navbar fijo visible encima del carrusel */
+.navbar {
+  z-index: 1030;
+  background: linear-gradient(180deg, #f19b11, #fd7e14) !important;
+}
+
+
+.navbar-toggler {
+  border-color: white;
+  /* Borde blanco del botón */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* hacer cambias de los colores de la navegacion lateral */
+.custom-offcanvas-bg {
+  background: linear-gradient(180deg, #fd7e14, #f19b11, #fd7e14) !important;
+  color: white !important;
+}
+
+.custom-offcanvas-bg .nav-link,
+.custom-offcanvas-bg .offcanvas-title,
+.custom-offcanvas-bg .dropdown-item,
+.custom-offcanvas-bg .form-control,
+.custom-offcanvas-bg input,
+.custom-offcanvas-bg button {
+  color: white !important;
+}
+
+.custom-offcanvas-bg .form-control::placeholder {
+  color: #f1f1f1 !important;
+}
+
+.custom-offcanvas-bg .btn-close {
+  filter: invert(1);
+}
+
+.acreditacion {
+  display: block;
+  margin: 40px auto;
+  padding: 5px;
+  width: 150px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.acreditacion:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+/* Carrusel sin altura fija forzada */
+#carouselExampleDark {
+  width: 100%;
+  height: 100%;
+  max-width: auto;
+  height: 575px;
+}
+
+/* Imágenes del carrusel */
+.carousel-inner,
+.carousel-item {
+  height: 100%;
+}
+
+.carousel-item img {
+  width: auto;
+  height: auto;
+  /* Altura proporcional, se adapta automáticamente */
+  object-fit: contain;
+  /* Mostrar toda la imagen sin recorte */
+}
+
+
+/* Captions con unidades en píxeles */
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fondo semitransparente */
+  padding: 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+/* color del submenu */
+.dropdown-menu-dark {
+  background: linear-gradient(180deg, #fd7e14, #f19b11) !important;
+  /* background-color: #fd7e14 !important; */
+  border: 2px solid white !important;
+}
+
+.dropdown-menu-dark .dropdown-item {
+  color: white;
+}
+
+/* selecionador del submenu */
+.dropdown-menu-dark .dropdown-item:hover {
+  /* background: linear-gradient(135deg, #fdc714, #fd7e14) !important; */
+  background-color: #e66b00;
+  /* tono más oscuro para hover */
+}
+
+/* seccion del formulario */
+.formulario {
+  padding-top: 70px;
+  margin-top: -70px;
+}
+
+
+.nav-tabs .nav-link {
+  color: #fd7e14;
+  /* Cambia este valor al color que desees */
+  font-weight: bold;
+}
+
+.nav-tabs .nav-link.active {
+  color: #fff;
+  /* Color para la pestaña activa */
+  background: linear-gradient(180deg, #f19b11, #fd7e14);
+  /* Fondo para la pestaña activa */
+}
+
+.form-check-input {
+  accent-color: #f3a100; /* Cambia el color principal (navegadores modernos) */
+}
+
+/* Estilo adicional para navegadores que no soportan `accent-color` */
+.form-check-input:checked {
+  background-color: #f3a100;
+  border-color: #f3a100;
+}
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(243, 161, 0, 0.25);
+  border-color: #f3a100;
+}
+
+/*CONTROLA EL COLOR O FOCO CUANDO ESTAS EL LOS INPUTS */
+
+.form-control:focus {
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #f3a100;      /* Color del borde al enfocar */
+  box-shadow: 0 0 0 0.2rem rgba(243, 161, 0, 0.4); /* Efecto de sombra al enfocar */
+}
+
+/* /BORDES DE FORMULARIO DEL TAB2/ */
+.formacion-item {
+  border: 2px dashed rgba(243, 161, 0);
+  /* Azul semitransparente */
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+/* BOTONES DEL FORMULARIO DEL TAB2 */
+.btn-personalizado {
+  background-color: transparent;
+  /* Sin fondo */
+  color: #000;
+  /* Texto negro */
+  border: 2px solid rgba(243, 161, 0, 0.4);
+  /* Borde translúcido azul */
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.1s ease;
+  padding: 8px 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-personalizado:hover {
+  background-color: rgba(243, 161, 0, 1);
+  /* Fondo azul sólido */
+  color: #fff;
+  /* Texto blanco */
+  border-color: rgba(243, 161, 0, 1);
+}
+
+.btn-personalizado.eliminar {
+  border: 2px solid rgba(220, 53, 69, 0.4);
+  /* Rojo translúcido */
+}
+
+.btn-personalizado.eliminar:hover {
+  background-color: rgba(220, 53, 69, 1);
+  /* Rojo sólido */
+  color: #fff;
+  border-color: rgba(220, 53, 69, 1);
+}
+
+.sombra {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.sombra:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-personalizado:active {
+  transform: scale(0.96);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+/* Cambiar color del botón cuando el acordeón está abierto */
+.accordion-button:not(.collapsed) {
+  background: linear-gradient(180deg, #f19b11, #fd7e14);
+  /* Cambia esto por el color que desees */
+  color: white;
+  /* Cambia el color del texto si es necesario */
+}
+
+/*modificaciones del acordeon*/
+/* Opcional: Cambiar color del borde cuando está abierto */
+.accordion-button:not(.collapsed)::after {
+  filter: brightness(0) invert(1);
+  /* Cambia el ícono a blanco si se requiere */
+}
+
+/* Opcional: color del botón cuando está cerrado */
+.accordion-button.collapsed {
+  background-color: #f8f9fa;
+  /* Color por defecto o el que prefieras */
+  color: #000;
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+  /* valor por defecto de Bootstrap */
+}
+
+/* Cámbialo por el color que desees, por ejemplo verde */
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem #fd7d14b7;
+  /* verde */
+  outline: none;
+  /* opcional, elimina outline si se ve feo */
+}
+
+
+.btn-custom {
+  background: linear-gradient(180deg, #f19b11, #fd7e14);
+  /* Cambia este color según lo que desees */
+  color: white;
+  border: none;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+}
+
+.btn-custom:hover {
+  background: linear-gradient(180deg, #f19b11, #fd7e14);
+  /* Un tono más oscuro para hover */
+}
+
+
+
+
+
+
+
+
+/*manupulacion de pie de pagina*/
+.info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  /* permite que las columnas bajen si no hay espacio */
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.info-col {
+  flex: 1 1 30%;
+  /* permite 3 columnas lado a lado */
+  min-width: 250px;
+  /* para responsividad */
+}
+
+.info-col h5 {
+  margin-bottom: 30px;
+  font-size: 22px;
+  color: white;
+  text-align: left;
+
+}
+
+.info-col ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+}
+
+.info-col li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.829);
+}
+
+.info-col .footer {
+  color: #f19b11;
+  font-size: 13px;
+
+}
+
+.info-col .foot {
+  color: #f19b11;
+  font-size: 20px;
+
+}
+
+.info-col p {
+  text-align: left;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.829);
+}
+
+.info-col a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+
+/* Sección de contacto */
+.contactos {
+  background: linear-gradient(180deg, #474747, #080808);
+  color: white;
+  padding: 10px 30px 10px 50px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
+/* Íconos de redes */
+.icons {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0;
+}
+
+.icon-link {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  line-height: 60px;
+  text-align: center;
+  transition: 0.3s;
+  color: white;
+  background-color: #444;
+}
+
+.icon-link:hover {
+  transform: scale(1.1);
+}
+
+.facebook:hover {
+  background-color: #1877f2;
+}
+
+.tiktok:hover {
+  background-color: #010101;
+}
+
+.instagram:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+/* Pie de página */
+.copyright {
+  background: linear-gradient(180deg, #474747, #080808);
+  color: #aaa;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.menu a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .icons {
+    gap: 1rem;
+  }
+
+  .icon-link {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4rem;
+  }
+
+  .offcanvas-end {
+    width: 250px !important;
+  }
+
+  .carousel-caption {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  #carouselExampleDark {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .carousel-caption {
+    font-size: 12px;
+    padding: 8px;
+    max-width: 50%;
+  }
+
+}
+
+/* Responsivo */
+@media (max-width: 920px) {
+
+  .offcanvas-end {
+    width: 250px !important;
+  }
+
+  .carousel-caption {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  #carouselExampleDark {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .carousel-caption {
+    font-size: 12px;
+    padding: 8px;
+    max-width: 50%;
+  }
+
+  .carousel-item img {
+    width: 100% !important;
+    height: 100%;
+    /* Altura proporcional, se adapta automáticamente */
+    object-fit: contain;
+    /* Mostrar toda la imagen sin recorte */
+  }
+
+
+
+}

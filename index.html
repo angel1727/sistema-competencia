@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" href="img/ibmetro.ico" type="image/ico" />
+
+  <title>COMPETENCIAS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+  <nav class="navbar fixed-top" data-bs-theme="light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo" width="150px"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+        aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDarkNavbar"
+        aria-labelledby="offcanvasDarkNavbarLabel"> -->
+      <div class="offcanvas offcanvas-end custom-offcanvas-bg" tabindex="-1" id="offcanvasDarkNavbar"
+        aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MENU</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Postulantes
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#hoja-de-vida">Hoja de vida</a></li>
+                <li><a class="dropdown-item" href="#">Educacion</a></li>
+                <li><a class="dropdown-item" href="#">Experiencia Laboral</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.php">Iniciar Session</a>
+            </li>
+          </ul>
+          <form class="d-flex mt-3" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-success" type="submit">BUSCAR</button>
+          </form>
+          <img src="img/acreditacion.png" alt="acreditacion" class="acreditacion">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <section id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="img/ibmetro1.jpeg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>First slide label</h5>
+          <p>Some representative placeholder content for the first slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="img/ibmetro2.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="img/ibmetro3.jpeg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </section>
+
+
+  <!-- <section id="banner">
+    <div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+
+  </section> -->
+
+  <section id="hoja-de-vida" class="formulario">
+    <div class="container mt-5">
+      <h1 class="mb-4 text-center">Hoja de Vida - Evaluadores y Expertos Técnicos</h1>
+
+      <!-- Tabs -->
+      <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="personales-tab" data-bs-toggle="tab" data-bs-target="#personales"
+            type="button" role="tab">1. Datos Personales</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="formacion-tab" data-bs-toggle="tab" data-bs-target="#formacion" type="button"
+            role="tab">2. Educación y Formación</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="experiencia-tab" data-bs-toggle="tab" data-bs-target="#experiencia" type="button"
+            role="tab">3. Experiencia</button>
+        </li>
+      </ul>
+
+
+      <!-- Formulario -->
+      <form method="POST" action="guardar_hoja_vida.php">
+        <div class="tab-content" id="myTabContent">
+          <!-- TAB 1 -->
+          <div class="tab-pane fade show active" id="personales" role="tabpanel">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label">Nombres</label>
+                <input type="text" name="nombres" class="form-control" required />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Apellidos</label>
+                <input type="text" name="apellidos" class="form-control" required />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">C.I. / Pasaporte</label>
+                <input type="text" name="ci" class="form-control" required />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Ciudad de residencia</label>
+                <input type="text" name="ciudad" class="form-control" required />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Dirección</label>
+                <input type="text" name="direccion" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Nacionalidad</label>
+                <input type="text" name="nacionalidad" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Teléfono móvil</label>
+                <input type="text" name="telefono_movil" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Teléfono fijo</label>
+                <input type="text" name="telefono_fijo" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" required />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">NIT</label>
+                <input type="text" name="nit" class="form-control" required />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Registro SIGEP</label>
+                <input type="text" name="sigep" class="form-control" required />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Matrícula de comercio</label>
+                <input type="text" name="matricula_comercio" class="form-control" required />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Seguro salud</label>
+                <input type="text" name="seguro_salud" class="form-control" required />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Seguro riesgo accidentes</label>
+                <input type="text" name="seguro_riesgo" class="form-control" required />
+              </div>
+
+
+              <!-- Archivos -->
+              <div class="col-4">
+                <label class="form-label">Adjuntar documentacion</label>
+                <input type="file" name="adjuntar_documentacion" accept="application/pdf" class="form-control"
+                  required />
+              </div>
+              <!-- <div class="col-6">
+                <label class="form-label">Registro SIGEP</label>
+                <input type="file" name="sigep" accept="application/pdf" class="form-control" required />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Matrícula de comercio</label>
+                <input type="file" name="matricula_comercio" accept="application/pdf" multiple class="form-control"
+                  required />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Seguro salud</label>
+                <input type="file" name="seguro_salud" accept="application/pdf" multiple class="form-control"
+                  required />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Seguro riesgo accidentes</label>
+                <input type="file" name="seguro_riesgo" accept="application/pdf" multiple class="form-control"
+                  required />
+              </div> -->
+            </div>
+          </div>
+
+          <!-- TAB 2 -->
+          <div class="tab-pane fade" id="formacion" role="tabpanel">
+            <!-- CONTENEDOR PRINCIPAL DE TODAS LAS FORMACIONES -->
+            <div id="formaciones-container">
+              <!-- FORMULARIO INDIVIDUAL CLONABLE -->
+              <div class="formacion-item p-3 mb-3 rounded">
+                <div class="row g-3">
+                  <!-- RADIO BUTTONS -->
+                  <div class="col-md-12">
+                    <label class="form-label d-block">Nivel Académico</label>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="nivel_radio_0" value="Educación Secundaria">
+                      <label class="form-check-label">Educación Secundaria</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="nivel_radio_0"
+                        value="Educación Técnico Profesional">
+                      <label class="form-check-label">Educación Técnico Profesional</label>
+                    </div>
+                  </div>
+                  <div class="col-md12">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="nivel_radio_0" value="Pregrado">
+                      <label class="form-check-label">Pregrado</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="nivel_radio_0" value="Postgrado">
+                      <label class="form-check-label">Postgrado</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="nivel_radio_0" value="Otro">
+                      <label class="form-check-label">Otro</label>
+                    </div>
+                  </div>
+
+                  <!-- CAMPOS DE TEXTO -->
+                  <div class="col-md-6">
+                    <label class="form-label">Grado obtenido</label>
+                    <input type="text" name="grado_obtenido" class="form-control" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Centro educativo (Universidad / Instituto)</label>
+                    <input type="text" name="centro" class="form-control" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Fecha de obtención del título (AAAA-MM)</label>
+                    <input type="text" name="fecha_titulo" class="form-control" />
+                  </div>
+
+                  <!-- BOTONES -->
+                  <div class="col-md-12">
+                    <button type="button" class="btn btn-personalizado btn-agregar ">➕ Añadir Formulario</button>
+                    <button type="button" class="btn btn-personalizado eliminar eliminar-formacion">🗑️ Eliminar
+                      formulario</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <!-- TAB 3 -->
+          <div class="tab-pane fade" id="experiencia" role="tabpanel">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label">Empresa Actual</label>
+                <input type="text" name="empresa" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Dirección (Lugar de Trabajo)</label>
+                <input type="text" name="empresa_direccion" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Departamento (Area de Trabajo)</label>
+                <input type="text" name="departamento" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Teléfono</label>
+                <input type="text" name="empresa_telefono" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Correo</label>
+                <input type="email" name="empresa_email" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Cargo Actual</label>
+                <input type="text" name="cargo" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Tiempo de Permanencia</label>
+                <input type="text" name="tiempo" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Persona de Referencia</label>
+                <input type="text" name="referencia" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Teléfono de Referencia</label>
+                <input type="text" name="tel_referencia" class="form-control" />
+              </div>
+              <div class="col-12">
+                <label class="form-label">Descripción de Actividades - Resposabilidades</label>
+                <textarea name="actividades" class="form-control" rows="3"></textarea>
+              </div>
+
+              <!-- LISTA DESPLEGABLE DEL ACORDEON -->
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Experiencia Laboral
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <div class="row g-3">
+                        <div id="formaciones-container">
+                          <!-- FORMULARIO INDIVIDUAL CLONABLE -->
+                          <div class="formacion-item p-3 mb-3 rounded">
+                            <div class="row g-3">
+                              <!-- CAMPOS DE TEXTO -->
+                              <div class="col-md-6">
+                                <label class="form-label">Empresa - Institucion</label>
+                                <input type="text" name="empresa_institucion" class="form-control" />
+                              </div>
+                              <div class="col-md-6">
+                                <label class="form-label">Tipo de Organización (Publica Privada Otro)</label>
+                                <input type="text" name="tipo_de_organizacion" class="form-control" />
+                              </div>
+                              <div class="col-md-6">
+                                <label class="form-label">Cargo Desempeñado</label>
+                                <input type="text" name="cargo_desempenado" class="form-control" />
+                              </div>
+                              <div class="col-md-2">
+                                <label class="form-label">Fecha Desde</label>
+                                <input type="text" name="fecha_desde" class="form-control" />
+                              </div>
+                              <div class="col-md-2">
+                                <label class="form-label">Fecha hasta</label>
+                                <input type="text" name="fecha_hasta" class="form-control" />
+                              </div>
+                              <div class="col-md-2">
+                                <label class="form-label">Duracion en meses</label>
+                                <input type="text" name="duracion_en_meses" class="form-control" />
+                              </div>
+                              <div class="col-12">
+                                <label class="form-label">Descripción de Actividades - Resposabilidades</label>
+                                <textarea name="actividades" class="form-control" rows="3"></textarea>
+                              </div>
+
+
+                              <!-- BOTONES -->
+                              <div class="col-md-12">
+                                <button type="button" class="btn btn-personalizado btn-agregar ">➕ Añadir
+                                  Formulario</button>
+                                <button type="button" class="btn btn-personalizado eliminar eliminar-formacion">🗑️
+                                  Eliminar
+                                  formulario</button>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                       Experiencia en Evaluaiones y/o Auditorias de 1ra. o 2da. Parte
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label class="form-label">Empresa actual</label>
+                          <input type="text" name="empresa" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Dirección</label>
+                          <input type="text" name="empresa_direccion" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Departamento</label>
+                          <input type="text" name="departamento" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Teléfono</label>
+                          <input type="text" name="empresa_telefono" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Email</label>
+                          <input type="email" name="empresa_email" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Cargo</label>
+                          <input type="text" name="cargo" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Tiempo de permanencia</label>
+                          <input type="text" name="tiempo" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Persona de referencia</label>
+                          <input type="text" name="referencia" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Teléfono de referencia</label>
+                          <input type="text" name="tel_referencia" class="form-control" />
+                        </div>
+                        <div class="col-12">
+                          <label class="form-label">Descripción de actividades</label>
+                          <textarea name="actividades" class="form-control" rows="3"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Experiencia en Evaluaiones y/o Auditorias de 3ra. Parte
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label class="form-label">Empresa actual</label>
+                          <input type="text" name="empresa" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Dirección</label>
+                          <input type="text" name="empresa_direccion" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Departamento</label>
+                          <input type="text" name="departamento" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Teléfono</label>
+                          <input type="text" name="empresa_telefono" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Email</label>
+                          <input type="email" name="empresa_email" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Cargo</label>
+                          <input type="text" name="cargo" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Tiempo de permanencia</label>
+                          <input type="text" name="tiempo" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Persona de referencia</label>
+                          <input type="text" name="referencia" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Teléfono de referencia</label>
+                          <input type="text" name="tel_referencia" class="form-control" />
+                        </div>
+                        <div class="col-12">
+                          <label class="form-label">Descripción de actividades</label>
+                          <textarea name="actividades" class="form-control" rows="3"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      Experiencia en Implementación/Consultoría/Facilitador
+                    </button>
+                  </h2>
+                  <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label class="form-label">Empresa actual</label>
+                          <input type="text" name="empresa4" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Dirección</label>
+                          <input type="text" name="empresa_direccion4" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Departamento</label>
+                          <input type="text" name="departamento4" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Teléfono</label>
+                          <input type="text" name="empresa_telefono4" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Email</label>
+                          <input type="email" name="empresa_email4" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Cargo</label>
+                          <input type="text" name="cargo4" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Tiempo de permanencia</label>
+                          <input type="text" name="tiempo4" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Persona de referencia</label>
+                          <input type="text" name="referencia4" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Teléfono de referencia</label>
+                          <input type="text" name="tel_referencia4" class="form-control" />
+                        </div>
+                        <div class="col-12">
+                          <label class="form-label">Descripción de actividades</label>
+                          <textarea name="actividades4" class="form-control" rows="3"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      Experiencia #5
+                    </button>
+                  </h2>
+                  <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label class="form-label">Empresa actual</label>
+                          <input type="text" name="empresa5" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Dirección</label>
+                          <input type="text" name="empresa_direccion5" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Departamento</label>
+                          <input type="text" name="departamento5" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Teléfono</label>
+                          <input type="text" name="empresa_telefono5" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Email</label>
+                          <input type="email" name="empresa_email5" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Cargo</label>
+                          <input type="text" name="cargo5" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Tiempo de permanencia</label>
+                          <input type="text" name="tiempo5" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Persona de referencia</label>
+                          <input type="text" name="referencia5" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Teléfono de referencia</label>
+                          <input type="text" name="tel_referencia5" class="form-control" />
+                        </div>
+                        <div class="col-12">
+                          <label class="form-label">Descripción de actividades</label>
+                          <textarea name="actividades5" class="form-control" rows="3"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="mt-4 text-center d-flex justify-content-end gap-2">
+                <a href="postEvaluador.html" class="btn btn-custom">Postu. Evaluador Lider</a>
+                <a href="postExptec.html" class="btn btn-custom">Postu. Experto Tecnico</a>
+                <a href="postDual.html" class="btn btn-custom">Postu. Dual EVA - EXP</a>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="mt-4 text-center">
+            <button type="submit" class="btn btn-primary">Guardar Información</button>
+          </div>
+      </form>
+    </div>
+  </section>
+
+
+  <section class="contactos">
+    <!-- NUEVA SECCIÓN DE INFORMACIÓN EN 3 COLUMNAS -->
+    <div class="info-grid">
+      <div class="info-col">
+        <h5>Direcciones</h5>
+        <ul>
+          <li><strong class="footer">LA PAZ:</strong> Av. Illimani, zona Valle Hermoso (Achocalla)</li>
+          <li><strong class="footer">COCHABAMBA:</strong> Calle Tumusla No. 510 esq. México</li>
+          <li><strong class="footer">SANTA CRUZ:</strong> Calle Combate Bella Flor N° 3230, entre Av. Alemana y
+            Mutualista (entre 3er y 4to anillo)</li>
+          <li><strong class="footer">TARIJA:</strong> Calle Isaac Attie entre Av. Victor Paz y Calle Avaroa S/N, Edif.
+            de la Familia Medina</li>
+          <li><strong class="footer">SUCRE:</strong> Parque Tecnológico zona Lajastambo a tres cuadras del Hospital del
+            Niño sobre la carretera Sucre Ravelo</li>
+          <li><strong class="footer">RIBERALTA:</strong> Av. Juan Carlos Menini No. 666</li>
+          <li><strong class="footer">COBIJA:</strong> Km 14.5 carretera Cobija a Porvenir – ZOFRA Cobija</li>
+        </ul>
+      </div>
+
+      <div class="info-col">
+        <h5>Teléfonos</h5>
+        <ul>
+          <li><strong class="footer">LA PAZ:</strong> (+591) 2 2136034 / 72045593</li>
+          <li><strong class="footer">COCHABAMBA:</strong> (+591 4) 4520856</li>
+          <li><strong class="footer">SANTA CRUZ:</strong> (+591 3) 3438081</li>
+          <li><strong class="footer">TARIJA:</strong> (+591 4) 6658866</li>
+          <li><strong class="footer">SUCRE:</strong> (+591) 71559129</li>
+          <li><strong class="footer">RIBERALTA:</strong> (+591) 67359342</li>
+          <li><strong class="footer">COBIJA:</strong> (+591) 71525861</li>
+        </ul>
+      </div>
+
+      <div class="info-col">
+        <p><strong class="foot">Horario de Atención:</strong><br>
+          Lunes a Viernes de 08h30 a 16h30</p>
+
+        <ul class="icons">
+          <li>
+            <a href="#" class="icon-link facebook" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="icon-link instagram" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="icon-link tiktok" target="_blank">
+              <i class="fab fa-tiktok"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+  <script src="../js/formacion.js"></script>
+</body>
+
+</html>

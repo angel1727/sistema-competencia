@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="img/ibmetro.ico" type="image/ico" />
+
+    <title>COMPETENCIAS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+    <nav class="navbar fixed-top" data-bs-theme="light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo" width="150px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDarkNavbar"
+        aria-labelledby="offcanvasDarkNavbarLabel"> -->
+            <div class="offcanvas offcanvas-end custom-offcanvas-bg" tabindex="-1" id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MENU</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Postulantess
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="#hoja-de-vida">Hoja de vida</a></li>
+                                <li><a class="dropdown-item" href="#">Educacion</a></li>
+                                <li><a class="dropdown-item" href="#">Experiencia Laboral</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Iniciar Session</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-success" type="submit">BUSCAR</button>
+                    </form>
+                    <img src="img/acreditacion.png" alt="acreditacion" class="acreditacion">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+        <section id="hoja-de-vida" class="formulario">
+        <div class="container mt-5">
+            <h1 class="mb-4 text-center">Complementación Dual Evaluadores y Experto Tecnico</h1>
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="personales-tab" data-bs-toggle="tab"
+                        data-bs-target="#personales" type="button" role="tab">Experto Tecnico</button>
+                </li>
+            </ul>
+
+
+            <!-- Formulario -->
+            <form method="POST" action="guardar_hoja_vida.php">
+                <div class="tab-content" id="myTabContent">
+                    <!-- TAB 1 -->
+                    <div class="tab-pane fade show active" id="personales" role="tabpanel">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label class="form-label">Àrea ISO/IEC a postular: Evaluadores</label>
+                                <select name="area" class="form-select" required>
+                                    <option value="">--Seleccione--</option>
+                                    <option value="ISO_17025">Laboratorios de ensayo (ISO/IEC 17025)</option>
+                                    <option value="ISO_15189">Laboratorios clínicos (ISO 15189)</option>
+                                    <option value="ISO_17020">Organismos de inspección (ISO/IEC 17020)</option>
+                                    <option value="ISO_17065">Certificación de producto/proceso (ISO/IEC 17065)</option>
+                                    <option value="ISO_17025">Laboratorios de calibración (ISO/IEC 17025)</option>
+                                    <option value="ISO_17043">Proveedores de ensayo de aptitud (ISO/IEC 17043)</option>
+                                    <option value="ISO_17024">Certificación de personas (ISO/IEC 17024)</option>
+                                    <option value="ISO_17021">Certificación de sistemas de gestión (ISO/IEC 17021)</option>
+                                    <option value="ISO_17034">Proveedores de materiales de referencia (ISO/IEC 17034)</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Tipo de formación</label>
+                                <input type="text" name="pregunta1" class="form-control" required />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Tema</label>
+                                <input type="text" name="pregunta2" class="form-control" required />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Organismo que brindó la capacitación</label>
+                                <input type="text" name="pregunta3" class="form-control" required />
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Fecha (AAAA-MM)</label>
+                                <input type="text" name="pregunta4" class="form-control" required />
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Duración en horas</label>
+                                <input type="text" name="pregunta5" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center d-flex justify-content-end gap-2">
+                            <a href="index.html" class="btn btn-custom">Regresar</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="mt-4 text-center">
+                    <button type="submit" class="btn btn-primary">Guardar Información</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+
+    <section class="contactos">
+        <!-- NUEVA SECCIÓN DE INFORMACIÓN EN 3 COLUMNAS -->
+        <div class="info-grid">
+            <div class="info-col">
+                <h5>Direcciones</h5>
+                <ul>
+                    <li><strong class="footer">LA PAZ:</strong> Av. Illimani, zona Valle Hermoso (Achocalla)</li>
+                    <li><strong class="footer">COCHABAMBA:</strong> Calle Tumusla No. 510 esq. México</li>
+                    <li><strong class="footer">SANTA CRUZ:</strong> Calle Combate Bella Flor N° 3230, entre Av. Alemana
+                        y
+                        Mutualista (entre 3er y 4to anillo)</li>
+                    <li><strong class="footer">TARIJA:</strong> Calle Isaac Attie entre Av. Victor Paz y Calle Avaroa
+                        S/N, Edif.
+                        de la Familia Medina</li>
+                    <li><strong class="footer">SUCRE:</strong> Parque Tecnológico zona Lajastambo a tres cuadras del
+                        Hospital del
+                        Niño sobre la carretera Sucre Ravelo</li>
+                    <li><strong class="footer">RIBERALTA:</strong> Av. Juan Carlos Menini No. 666</li>
+                    <li><strong class="footer">COBIJA:</strong> Km 14.5 carretera Cobija a Porvenir – ZOFRA Cobija</li>
+                </ul>
+            </div>
+
+            <div class="info-col">
+                <h5>Teléfonos</h5>
+                <ul>
+                    <li><strong class="footer">LA PAZ:</strong> (+591) 2 2136034 / 72045593</li>
+                    <li><strong class="footer">COCHABAMBA:</strong> (+591 4) 4520856</li>
+                    <li><strong class="footer">SANTA CRUZ:</strong> (+591 3) 3438081</li>
+                    <li><strong class="footer">TARIJA:</strong> (+591 4) 6658866</li>
+                    <li><strong class="footer">SUCRE:</strong> (+591) 71559129</li>
+                    <li><strong class="footer">RIBERALTA:</strong> (+591) 67359342</li>
+                    <li><strong class="footer">COBIJA:</strong> (+591) 71525861</li>
+                </ul>
+            </div>
+
+            <div class="info-col">
+                <p><strong class="foot">Horario de Atención:</strong><br>
+                    Lunes a Viernes de 08h30 a 16h30</p>
+
+                <ul class="icons">
+                    <li>
+                        <a href="#" class="icon-link facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon-link instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon-link tiktok" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+</body>
+
+</html>
