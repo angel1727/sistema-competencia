@@ -14,6 +14,48 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
         <!-- SweetAlert2 -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        .bg-orange {
+            background-color: #f3a100 !important;
+        }
+
+        .navbar .nav-link {
+            color: white !important;
+        }
+
+        .navbar .nav-link:hover {
+            color: #000 !important;
+        }
+
+        .navbar-brand {
+            color: white !important;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+
+        }
+
+        /* .nav-logout {
+            background-color: white;
+            color: #f3a100 !important;
+            border-radius: 5px;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-logout:hover {
+            background-color: #f3a100;
+            color: white !important;
+            text-shadow: 0 0 3px #fff;
+        } */
+        </style>
     </head>
 
     <body>
