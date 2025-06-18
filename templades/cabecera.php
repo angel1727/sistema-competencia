@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
     <head>
-        <title>Title</title>
+        <title>Direccion Tecnica de Acreditacion</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -59,10 +59,10 @@
     </head>
 
     <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-orange shadow-sm">
         <div class="container-fluid">
         <!-- Logo o Título -->
-        <a class="navbar-brand d-flex align-items-center" href="#">
+        <a class="navbar-brand d-flex align-items-center " href="#">
         <i class="bi bi-person-circle fs-4 me-2"></i>
         <span class="fw-bold">Panel Admin</span>
         </a>
