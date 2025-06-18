@@ -39,10 +39,41 @@ function generateExtraFields(selectValue) {
 
     case 'ISO_15189':
       wrapper.innerHTML = `
-        <div class="form-group">
-          <label>Especialidad médica:</label>
-          <input type="text" name="especialidad_medica[]" required>
-        </div>
+        <div id="formaciones-container">
+              <!-- FORMULARIO INDIVIDUAL CLONABLE -->
+              <div class="formacion-item p-3 mb-3 rounded">
+                <div class="row g-3"
+                    <div class="col-md-3">
+                        <label class="form-label">Tipo de formación</label>
+                        <input type="text" name="tipo_formacion" class="form-control" required />
+                    </div>
+                    <div class="col-md-9">
+                        <label class="form-label">Tema</label>
+                        <input type="text" name="Tema" class="form-control" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Organismo que brindó la capacitación</label>
+                        <input type="text" name="organismo_capacitacion" class="form-control" required />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Fecha (AAAA-MM)</label>
+                        <input type="text" name="fecha" class="form-control" required />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Duración en horas</label>
+                        <input type="text" name="duracion_horas" class="form-control" required />
+                    </div>
+                </div>
+
+                  <!-- BOTONES -->
+                  <div class="col-md-12">
+                    <button type="button" class="btn btn-personalizado btn-agregar ">➕ Añadir Formulario</button>
+                    <button type="button" class="btn btn-personalizado eliminar eliminar-formacion">🗑️ Eliminar
+                      formulario</button>
+                  </div>
+                </div>
+              </div>
+            </div>
       `;
       break;
 
