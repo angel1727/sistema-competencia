@@ -132,6 +132,15 @@
           <button class="nav-link" id="experiencia-tab" data-bs-toggle="tab" data-bs-target="#experiencia" type="button"
             role="tab">3. Experiencia</button>
         </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="capacitacion-tab" data-bs-toggle="tab" data-bs-target="#capacitacion" type="button"
+            role="tab">4. Capacitacion y Formacion</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="exp_tecnica-tab" data-bs-toggle="tab" data-bs-target="#exp_tecnica" type="button"
+            role="tab">5. Experiencia Tecnica</button>
+        </li>
+
       </ul>
 
 
@@ -281,7 +290,6 @@
                     <button type="button" class="btn btn-personalizado btn-agregar ">➕ Añadir Formulario</button>
                     <button type="button" class="btn btn-personalizado eliminar eliminar-formacion">🗑️ Eliminar
                       formulario</button>
-
                   </div>
                 </div>
               </div>
@@ -389,7 +397,6 @@
                                 <button type="button" class="btn btn-personalizado eliminar eliminar-formacion">🗑️
                                   Eliminar
                                   formulario</button>
-
                               </div>
                             </div>
                           </div>
@@ -408,45 +415,51 @@
                   <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                       <div class="row g-3">
-                        <div class="col-md-6">
-                          <label class="form-label">Empresa actual</label>
-                          <input type="text" name="empresa" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Dirección</label>
-                          <input type="text" name="empresa_direccion" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Departamento</label>
-                          <input type="text" name="departamento" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Teléfono</label>
-                          <input type="text" name="empresa_telefono" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Email</label>
-                          <input type="email" name="empresa_email" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Cargo</label>
-                          <input type="text" name="cargo" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Tiempo de permanencia</label>
-                          <input type="text" name="tiempo" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Persona de referencia</label>
-                          <input type="text" name="referencia" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Teléfono de referencia</label>
-                          <input type="text" name="tel_referencia" class="form-control" />
-                        </div>
-                        <div class="col-12">
-                          <label class="form-label">Descripción de actividades</label>
-                          <textarea name="actividades" class="form-control" rows="3"></textarea>
+                        <div id="formaciones-container">
+                          <!-- FORMULARIO INDIVIDUAL CLONABLE -->
+                          <div class="formacion-item p-3 mb-3 rounded">
+                            <div class="row g-3">
+                              <!-- CAMPOS DE TEXTO -->
+                              <div class="col-md-6">
+                                <label class="form-label">Organizacion contratante del servicio</label>
+                                <input type="text" name="organizacion_servicio12" class="form-control" />
+                              </div>
+                              <div class="col-md-6">
+                                <label class="form-label">Organizacion evaluada o auditada</label>
+                                <input type="text" name="organizacion_evaluada12" class="form-control" />
+                              </div>
+                              <div class="col-md-6">
+                                <label class="form-label">Tipo Organismo</label>
+                                <input type="text" name="tipo_organismo12" class="form-control" />
+                              </div>
+                              <div class="col-md-6">
+                                <label class="form-label">Rol designado</label>
+                                <input type="text" name="rol_designada12" class="form-control" />
+                              </div>
+                              <div class="col-md-12">
+                                <label class="form-label">Norma Aplicada</label>
+                                <input type="text" name="norma_aplicada12" class="form-control" />
+                              </div>
+                              <div class="col-md-4">
+                                <label class="form-label">Fecha</label>
+                                <input type="text" name="fecha12" class="form-control" />
+                              </div>
+                              <div class="col-md-4">
+                                <label class="form-label">Duracion en horas</label>
+                                <input type="text" name="duracion_en_horas12" class="form-control" />
+                              </div>
+
+
+                              <!-- BOTONES -->
+                              <div class="col-md-12">
+                                <button type="button" class="btn btn-personalizado btn-agregar ">➕ Añadir
+                                  Formulario</button>
+                                <button type="button" class="btn btn-personalizado eliminar eliminar-formacion">🗑️
+                                  Eliminar
+                                  formulario</button>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -462,45 +475,51 @@
                   <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                       <div class="row g-3">
-                        <div class="col-md-6">
-                          <label class="form-label">Empresa actual</label>
-                          <input type="text" name="empresa" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Dirección</label>
-                          <input type="text" name="empresa_direccion" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Departamento</label>
-                          <input type="text" name="departamento" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Teléfono</label>
-                          <input type="text" name="empresa_telefono" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Email</label>
-                          <input type="email" name="empresa_email" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Cargo</label>
-                          <input type="text" name="cargo" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Tiempo de permanencia</label>
-                          <input type="text" name="tiempo" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Persona de referencia</label>
-                          <input type="text" name="referencia" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Teléfono de referencia</label>
-                          <input type="text" name="tel_referencia" class="form-control" />
-                        </div>
-                        <div class="col-12">
-                          <label class="form-label">Descripción de actividades</label>
-                          <textarea name="actividades" class="form-control" rows="3"></textarea>
+                        <div id="formaciones-container">
+                          <!-- FORMULARIO INDIVIDUAL CLONABLE -->
+                          <div class="formacion-item p-3 mb-3 rounded">
+                            <div class="row g-3">
+                              <!-- CAMPOS DE TEXTO -->
+                              <div class="col-md-6">
+                                <label class="form-label">Orgamizacion contratante del servicio</label>
+                                <input type="text" name="organizacion_servicio3" class="form-control" />
+                              </div>
+                              <div class="col-md-6">
+                                <label class="form-label">Organizacion evaluada o auditada</label>
+                                <input type="text" name="organizacion_evaluada3" class="form-control" />
+                              </div>
+                              <div class="col-md-6">
+                                <label class="form-label">Tipo Organismo</label>
+                                <input type="text" name="tipo_organismo3" class="form-control" />
+                              </div>
+                              <div class="col-md-6">
+                                <label class="form-label">Rol designado</label>
+                                <input type="text" name="rol_designada3" class="form-control" />
+                              </div>
+                              <div class="col-md-12">
+                                <label class="form-label">Norma Aplicada</label>
+                                <input type="text" name="norma_aplicada3" class="form-control" />
+                              </div>
+                              <div class="col-md-4">
+                                <label class="form-label">Fecha</label>
+                                <input type="text" name="fecha3" class="form-control" />
+                              </div>
+                              <div class="col-md-4">
+                                <label class="form-label">Duracion en horas</label>
+                                <input type="text" name="duracion_en_horas3" class="form-control" />
+                              </div>
+
+
+                              <!-- BOTONES -->
+                              <div class="col-md-12">
+                                <button type="button" class="btn btn-personalizado btn-agregar ">➕ Añadir
+                                  Formulario</button>
+                                <button type="button" class="btn btn-personalizado eliminar eliminar-formacion">🗑️
+                                  Eliminar
+                                  formulario</button>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -516,51 +535,49 @@
                   <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                       <div class="row g-3">
-                        <div class="col-md-6">
-                          <label class="form-label">Empresa actual</label>
-                          <input type="text" name="empresa4" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Dirección</label>
-                          <input type="text" name="empresa_direccion4" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Departamento</label>
-                          <input type="text" name="departamento4" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Teléfono</label>
-                          <input type="text" name="empresa_telefono4" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Email</label>
-                          <input type="email" name="empresa_email4" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Cargo</label>
-                          <input type="text" name="cargo4" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Tiempo de permanencia</label>
-                          <input type="text" name="tiempo4" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Persona de referencia</label>
-                          <input type="text" name="referencia4" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                          <label class="form-label">Teléfono de referencia</label>
-                          <input type="text" name="tel_referencia4" class="form-control" />
-                        </div>
-                        <div class="col-12">
-                          <label class="form-label">Descripción de actividades</label>
-                          <textarea name="actividades4" class="form-control" rows="3"></textarea>
+                        <div id="formaciones-container">
+                          <!-- FORMULARIO INDIVIDUAL CLONABLE -->
+                          <div class="formacion-item p-3 mb-3 rounded">
+                            <div class="row g-3">
+                              <!-- CAMPOS DE TEXTO -->
+                              <div class="col-md-6">
+                                <label class="form-label">Organizacion contratante del servicio</label>
+                                <input type="text" name="organizacion_servicio_consul" class="form-control" />
+                              </div>
+                              <div class="col-md-6">
+                                <label class="form-label">Organizacion Beneficiada</label>
+                                <input type="text" name="organizacion_beneficiada" class="form-control" />
+                              </div>
+                              <div class="col-md-6">
+                                <label class="form-label">Funcion</label>
+                                <input type="text" name="funcion" class="form-control" />
+                              </div>
+                              <div class="col-md-6">
+                                <label class="form-label">Fecha</label>
+                                <input type="text" name="fecha" class="form-control" />
+                              </div>
+                              <div class="col-md-4">
+                                <label class="form-label">Duracion horas</label>
+                                <input type="text" name="duracion_horas" class="form-control" />
+                              </div>
+
+
+                              <!-- BOTONES -->
+                              <div class="col-md-12">
+                                <button type="button" class="btn btn-personalizado btn-agregar ">➕ Añadir
+                                  Formulario</button>
+                                <button type="button" class="btn btn-personalizado eliminar eliminar-formacion">🗑️
+                                  Eliminar
+                                  formulario</button>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="accordion-item">
+                <!-- <div class="accordion-item">
                   <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                       data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -613,7 +630,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
               </div>
 
@@ -626,6 +643,65 @@
             </div>
           </div>
 
+          <!-- TAB 4 -->
+          <div class="tab-pane fade" id="capacitacion" role="tabpanel">
+            <!-- CONTENEDOR PRINCIPAL DE TODAS LAS FORMACIONES -->
+            <div id="formaciones-container">
+              <!-- FORMULARIO INDIVIDUAL CLONABLE -->
+              <div class="formacion-item p-3 mb-3 rounded">
+                <div class="row g-3">
+                  <div class="row g-3">
+                    <div class="col-md-12">
+                        <label class="form-label">Àrea ISO/IEC a postular: Evaluadores</label>
+                        <select name="area" class="form-select" required>
+                            <option value="">--Seleccione un equema--</option>
+                            <option value="ISO_17025">Laboratorios de ensayo (ISO/IEC 17025)</option>
+                            <option value="ISO_15189">Laboratorios clínicos (ISO 15189)</option>
+                            <option value="ISO_17020">Organismos de inspección (ISO/IEC 17020)</option>
+                            <option value="ISO_17065">Certificación de producto/proceso (ISO/IEC 17065)</option>
+                            <option value="ISO_17025">Laboratorios de calibración (ISO/IEC 17025)</option>
+                            <option value="ISO_17043">Proveedores de ensayo de aptitud (ISO/IEC 17043)</option>
+                            <option value="ISO_17024">Certificación de personas (ISO/IEC 17024)</option>
+                            <option value="ISO_17021">Certificación de sistemas de gestión (ISO/IEC 17021)</option>
+                            <option value="ISO_17034">Proveedores de materiales de referencia (ISO/IEC 17034)</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">Tipo de formación</label>
+                        <input type="text" name="tipo_formacion" class="form-control" required />
+                    </div>
+                    <div class="col-md-9">
+                        <label class="form-label">Tema</label>
+                        <input type="text" name="Tema" class="form-control" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Organismo que brindó la capacitación</label>
+                        <input type="text" name="organismo_capacitacion" class="form-control" required />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Fecha (AAAA-MM)</label>
+                        <input type="text" name="fecha" class="form-control" required />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Duración en horas</label>
+                        <input type="text" name="duracion_horas" class="form-control" required />
+                    </div>
+                </div>
+
+                  <!-- BOTONES -->
+                  <div class="col-md-12">
+                    <button type="button" class="btn btn-personalizado btn-agregar ">➕ Añadir Formulario</button>
+                    <button type="button" class="btn btn-personalizado eliminar eliminar-formacion">🗑️ Eliminar
+                      formulario</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          
 
           <div class="mt-4 text-center">
             <button type="submit" class="btn btn-primary">Guardar Información</button>
@@ -701,6 +777,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
   <script src="../js/formacion.js"></script>
+  <script src="../sistema-competencia/js/formacion.js"></script>
 </body>
 
 </html>
