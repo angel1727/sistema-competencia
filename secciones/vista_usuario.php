@@ -1,5 +1,15 @@
-<?php include '../templades/cabecera.php'; ?>
 <?php include '../secciones/usuario.php'; ?>
+<?php include '../templades/cabecera.php'; ?>
+<?php if (isset($_SESSION['mensaje'])): ?>
+<script>
+Swal.fire({
+    icon: '<?= $_SESSION['tipo'] ?>',
+    title: '<?= $_SESSION['mensaje'] ?>',
+    showConfirmButton: false,
+    timer: 2500
+});
+</script>
+<?php unset($_SESSION['mensaje'], $_SESSION['tipo']); endif; ?>
 
 <div class="row g-4">
   <!-- Panel de Usuario con botón para abrir modal -->
@@ -27,7 +37,7 @@
       </div>
       <div class="card-body p-0">
         <div class="table-responsive">
-          <table class="table table-striped table-hover m-0">
+          <table id="tablaUsuarios" class="table table-striped table-hover display nowrap" style="width:100%">
             <thead class="table-light">
               <tr>
                 <th>Nombre</th>
@@ -54,7 +64,7 @@
                     class="btn btn-sm btn-warning"
                     data-bs-toggle="modal"
                     data-bs-target="#usuarioModal"
-                    onclick="cargarUsuario('<?= $usuario['idusuario'] ?>', '<?= $usuario['nombre'] ?>', '<?= $usuario['apellido'] ?>', '<?= $usuario['usuario'] ?>', '<?= $usuario['password'] ?>', '<?= $usuario['correo'] ?>', '<?= $usuario['cargo'] ?>')"
+                    onclick="cargarUsuario('<?= $usuario['idusuario'] ?>', '<?= $usuario['nombre'] ?>', '<?= $usuario['apellido'] ?>', '<?= $usuario['usuario'] ?>', '<?= $usuario['password'] ?>', '<?= $usuario['correo'] ?>', '<?= $usuario['cargo'] ?>', '<?= $usuario['rol'] ?>')"
                     >
                     <i class="bi bi-pencil-fill"></i>
                     </button>
@@ -62,8 +72,8 @@
                     <!-- Formulario oculto para eliminar -->
                     <form method="post" class="d-inline">
                     <input type="hidden" name="accion" value="eliminar">
-                    <input type="hidden" name="id" value="<?= $usuario['idusuario'] ?>">
-                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">
+                    <input type="hidden" name="idusuario" value="<?= $usuario['idusuario'] ?>">
+                    <button type="submit" class="btn btn-sm btn-danger">
                         <i class="bi bi-trash-fill"></i>
                     </button>
                     </form>
@@ -88,8 +98,8 @@
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <form action="" method="post">
-        <input type="hidden" name="id" id="modal_id">
-
+        <input type="hidden" name="idusuario" id="modal_idusuario">
+        <input type="hidden" name="accion" id="modal_accion" value="guardar_modal">
         <div class="modal-body">
           <div class="mb-3">
             <label for="modal_nombre" class="form-label">Nombre</label>
@@ -133,7 +143,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" name="accion" value="guardar_modal" class="btn btn-primary" id="btnGuardar">
+          <button type="submit" class="btn btn-primary" id="btnGuardar">
             <i class="bi bi-save2-fill me-1"></i> Guardar
           </button>
         </div>
@@ -144,6 +154,29 @@
 </div>
 
 
-
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Selecciona todos los formularios de eliminar
+    document.querySelectorAll('form.d-inline').forEach(function(form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita el envío inmediato
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡Esta acción no se puede deshacer!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit(); // Envía el formulario si confirma
+                }
+            });
+        });
+    });
+});
+</script>
 
 <?php include '../templades/pie.php'; ?>
