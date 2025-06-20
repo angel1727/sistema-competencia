@@ -133,8 +133,8 @@
             role="tab">3. Experiencia</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="capacitacion-tab" data-bs-toggle="tab" data-bs-target="#capacitacion" type="button"
-            role="tab">4. Capacitacion y Formacion</button>
+          <button class="nav-link" id="capacitacion-tab" data-bs-toggle="tab" data-bs-target="#capacitacion"
+            type="button" role="tab">4. Capacitacion y Formacion</button>
         </li>
         <li class="nav-item" role="presentation">
           <button class="nav-link" id="exp_tecnica-tab" data-bs-toggle="tab" data-bs-target="#exp_tecnica" type="button"
@@ -409,7 +409,7 @@
                   <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                       data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                       Experiencia en Evaluaiones y/o Auditorias de 1ra. o 2da. Parte
+                      Experiencia en Evaluaiones y/o Auditorias de 1ra. o 2da. Parte
                     </button>
                   </h2>
                   <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -652,42 +652,42 @@
                 <div class="row g-3">
                   <div class="row g-3">
                     <div class="col-md-12">
-                        <label class="form-label">Àrea ISO/IEC a postular: Evaluadores</label>
-                        <select name="area" class="form-select" required>
-                            <option value="">--Seleccione un equema--</option>
-                            <option value="ISO_17025">Laboratorios de ensayo (ISO/IEC 17025)</option>
-                            <option value="ISO_15189">Laboratorios clínicos (ISO 15189)</option>
-                            <option value="ISO_17020">Organismos de inspección (ISO/IEC 17020)</option>
-                            <option value="ISO_17065">Certificación de producto/proceso (ISO/IEC 17065)</option>
-                            <option value="ISO_17025">Laboratorios de calibración (ISO/IEC 17025)</option>
-                            <option value="ISO_17043">Proveedores de ensayo de aptitud (ISO/IEC 17043)</option>
-                            <option value="ISO_17024">Certificación de personas (ISO/IEC 17024)</option>
-                            <option value="ISO_17021">Certificación de sistemas de gestión (ISO/IEC 17021)</option>
-                            <option value="ISO_17034">Proveedores de materiales de referencia (ISO/IEC 17034)</option>
-                        </select>
+                      <label class="form-label">Àrea ISO/IEC a postular: Evaluadores</label>
+                      <select name="area" class="form-select" required>
+                        <option value="">--Seleccione--</option>
+                        <option value="ISO_17025en">Laboratorios de Ensayo (ISO/IEC 17025)</option>
+                        <option value="ISO_17025cal">Laboratorios de Calibración (ISO/IEC 17025)</option>
+                        <option value="ISO_15189">Laboratorios Clínicos (ISO 15189)</option>
+                        <option value="ISO_17020">Organismo de Inspección (ISO/IEC 17020)</option>
+                        <option value="ISO_17043">Proveedores de ensayo de aptitud (ISO/IEC 17043)</option>
+                        <option value="ISO_17024">Organismo de Certificación de Personas (ISO/IEC 17024)</option>
+                        <option value="ISO_17021_1">Organismo de Certificación de Sistemas de Gestion (ISO/IEC17021-1)</option>
+                        <option value="ISO_17065">Organismo de Certificación de Producto (ISO/IEC 17065)</option>
+                        <option value="ISO_17034">Proveedores de Materiales de Referencia (ISO/IEC 17034)</option>
+                      </select>
                     </div>
 
                     <div class="col-md-3">
-                        <label class="form-label">Tipo de formación</label>
-                        <input type="text" name="tipo_formacion" class="form-control" required />
+                      <label class="form-label">Tipo de formación</label>
+                      <input type="text" name="tipo_formacion" class="form-control" required />
                     </div>
                     <div class="col-md-9">
-                        <label class="form-label">Tema</label>
-                        <input type="text" name="Tema" class="form-control" required />
+                      <label class="form-label">Tema</label>
+                      <input type="text" name="Tema" class="form-control" required />
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Organismo que brindó la capacitación</label>
-                        <input type="text" name="organismo_capacitacion" class="form-control" required />
+                      <label class="form-label">Organismo que brindó la capacitación</label>
+                      <input type="text" name="organismo_capacitacion" class="form-control" required />
                     </div>
                     <div class="col-md-3">
-                        <label class="form-label">Fecha (AAAA-MM)</label>
-                        <input type="text" name="fecha" class="form-control" required />
+                      <label class="form-label">Fecha (AAAA-MM)</label>
+                      <input type="text" name="fecha" class="form-control" required />
                     </div>
                     <div class="col-md-3">
-                        <label class="form-label">Duración en horas</label>
-                        <input type="text" name="duracion_horas" class="form-control" required />
+                      <label class="form-label">Duración en horas</label>
+                      <input type="text" name="duracion_horas" class="form-control" required />
                     </div>
-                </div>
+                  </div>
 
                   <!-- BOTONES -->
                   <div class="col-md-12">
@@ -701,7 +701,67 @@
 
           </div>
 
-          
+          <!-- TAB 5 -->
+          <div class="tab-pane fade" id="exp_tecnica" role="tabpanel">
+             <h2>INFORMACION DE EXPERIENCIA TECNICA POR ESQUEMA</h2>
+            <!-- CONTENEDOR PRINCIPAL DE TODAS LAS FORMACIONES -->
+            <div id="formaciones-container">
+              <!-- FORMULARIO INDIVIDUAL CLONABLE -->
+              <div class="formacion-item p-3 mb-3 rounded">
+                <div class="row g-3">
+                  <div class="row g-3">
+                    <div class="col-md-12">
+                      <label>Área ISO/IEC con Experiencia Tecnica</label>
+                          <select name="area" class="form-select" required>
+                            <option value="">--Seleccione el Esquema--</option>
+                            <option value="ETISO_17025en">Laboratorios de Ensayo (ISO/IEC 17025)</option>
+                            <option value="ETISO_17025cal">Laboratorios de Calibración (ISO/IEC 17025)</option>
+                            <option value="ETISO_15189">Laboratorios Clínicos (ISO 15189)</option>
+                            <option value="ETISO_17043est">Proveedores de ensayo de aptitud - Estadistico (ISO/IEC 17043)</option>
+                            <option value="ETISO_17043tec">Proveedores de ensayo de aptitud - Tecnico (ISO/IEC 17043)</option>
+                            <option value="ETISO_17020">Organismo de Inspección (ISO/IEC 17020)</option>
+                            <option value="ETISO_17065">Organismo de Certificación de Producto (ISO/IEC 17065)</option>
+                            <option value="ETISO_17021_1">Organismo de Certificación de Sistemas de Gestion (ISO/IEC 17021-1)</option>
+                            <option value="ETISO_17024">Certificación de Personas (ISO/IEC 17024)</option>
+                            <option value="ETISO_17034">Proveedores de Materiales de Referencia (ISO/IEC 17034)</option>
+                          </select>
+                    </div>
+
+                    <div class="col-md-3">
+                      <label class="form-label">Tipo de formación</label>
+                      <input type="text" name="tipo_formacion" class="form-control" required />
+                    </div>
+                    <!-- <div class="col-md-9">
+                      <label class="form-label">Tema</label>
+                      <input type="text" name="Tema" class="form-control" required />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Organismo que brindó la capacitación</label>
+                      <input type="text" name="organismo_capacitacion" class="form-control" required />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Fecha (AAAA-MM)</label>
+                      <input type="text" name="fecha" class="form-control" required />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Duración en horas</label>
+                      <input type="text" name="duracion_horas" class="form-control" required />
+                    </div> -->
+                  </div>
+
+                  <!-- BOTONES -->
+                  <div class="col-md-12">
+                    <button type="button" class="btn btn-personalizado btn-agregar ">➕ Añadir Formulario</button>
+                    <button type="button" class="btn btn-personalizado eliminar eliminar-formacion">🗑️ Eliminar
+                      formulario</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+
 
           <div class="mt-4 text-center">
             <button type="submit" class="btn btn-primary">Guardar Información</button>
@@ -778,6 +838,7 @@
 
   <script src="../js/formacion.js"></script>
   <script src="../sistema-competencia/js/formacion.js"></script>
+  <SCRIpt SRC="../sistema-competencia/script.js"></SCRIpt>
 </body>
 
 </html>

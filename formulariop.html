@@ -4,29 +4,32 @@
 <head>
   <meta charset="UTF-8">
   <title>Formulario Dinámico</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
 
-  <h2>Formulario Dinámico</h2>
+  <h2>Formulario Dinámicom</h2>
 
   <div id="formsWrapper">
     <div class="form-container">
       <div class="form-group">
-        <label>Área ISO/IEC a postular</label>
+        <label>Área ISO/IEC con Experiencia Tecnica</label>
         <select name="area" class="form-select" required>
-          <option value="">--Seleccione--</option>
-          <option value="ISO_17025">Laboratorios de ensayo (ISO/IEC 17025)</option>
-          <option value="ISO_15189">Laboratorios clínicos (ISO 15189)</option>
-          <option value="ISO_17065">Certificación de producto (ISO/IEC 17020)</option>
-          <option value="ISO_17065">Certificación de producto/proceso (ISO/IEC 17065)</option>
-          <option value="ISO_17065">Certificación de producto/proceso (ISO/IEC 17065)</option>
-          <option value="ISO_17025">Laboratorios de calibración (ISO/IEC 17025)</option>
-          <option value="ISO_17043">Proveedores de ensayo de aptitud (ISO/IEC 17043)</option>
-          <option value="ISO_17024">Certificación de personas (ISO/IEC 17024)</option>
-          <option value="ISO_17021">Certificación de sistemas de gestión (ISO/IEC 17021)</option>
-          <option value="ISO_17034">Proveedores de materiales de referencia (ISO/IEC 17034)</option>
+          <option value="">--Seleccione el Esquema--</option>
+          <option value="ETISO_17025en">Laboratorios de Ensayo (ISO/IEC 17025)</option>
+          <option value="ETISO_17025cal">Laboratorios de Calibración (ISO/IEC 17025)</option>
+          <option value="ETISO_15189">Laboratorios Clínicos (ISO 15189)</option>
+          <option value="ETISO_17043est">Proveedores de ensayo de aptitud - Estadistico (ISO/IEC 17043)</option>
+          <option value="ETISO_17043tec">Proveedores de ensayo de aptitud - Tecnico (ISO/IEC 17043)</option>
+          <option value="ETISO_17020">Organismo de Inspección (ISO/IEC 17020)</option>
+          <option value="ETISO_17065">Organismo de Certificación de Producto (ISO/IEC 17065)</option>
+          <option value="ETISO_17021_1">Organismo de Certificación de Sistemas de Gestion (ISO/IEC 17021-1)</option>
+          <option value="ETISO_17024">Certificación de Personas (ISO/IEC 17024)</option>
+          <option value="ETISO_17034">Proveedores de Materiales de Referencia (ISO/IEC 17034)</option>
         </select>
       </div>
 

@@ -69,3 +69,23 @@ input[type="email"] {
   border-left: 2px solid #ccc;
 }
 
+.textarea-container {
+    position: relative;
+    width: 100%;
+}
+
+.textarea-container textarea {
+    width: 100%;
+    padding-bottom: 25px; /* espacio para el contador */
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.textarea-counter {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 15px;
+    color: #6c757d;
+    pointer-events: none; /* no interfiere con el cursor */
+}
