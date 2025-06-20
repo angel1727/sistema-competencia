@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include_once '../configuraciones/bd.php';
 $conexion = BD::crearInstancia();
@@ -6,7 +7,7 @@ $conexion = BD::crearInstancia();
 $accion = $_POST['accion'] ?? '';
 $idusuario = $_POST['idusuario'] ?? '';
 $nombre = $_POST['modal_nombre'] ?? '';
-$apellidos = $_POST['modal_apellido'] ?? '';
+$apellido = $_POST['modal_apellido'] ?? '';
 $usuario = $_POST['modal_usuario'] ?? '';
 $password = $_POST['modal_password'] ?? '';
 $correo = $_POST['modal_correo'] ?? '';
@@ -18,6 +19,10 @@ if ($accion === 'guardar_modal') {
     $sql = "INSERT INTO `usuario` (nombre, apellido, usuario, password, correo, cargo, rol) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql);
     $stmt->execute([$nombre, $apellido, $usuario, $password, $correo, $cargo, $rol]);
+    $_SESSION['mensaje'] = 'Usuario guardado correctamente';
+    $_SESSION['tipo'] = 'success';
+    header('Location: vista_usuario.php');
+    exit();
 }
 
 // Actualizar usuario existente
@@ -26,6 +31,10 @@ if ($accion === 'editar_modal') {
     $idusuario = $_POST['idusuario'] ?? '';
     $stmt = $conexion->prepare($sql);
     $stmt->execute([$nombre, $apellido, $usuario, $password, $correo, $cargo, $rol, $idusuario]);
+    $_SESSION['mensaje'] = 'Usuario actualizado correctamente';
+    $_SESSION['tipo'] = 'success';
+    header('Location: vista_usuario.php');
+    exit();
 }
 
 // Eliminar usuario
@@ -33,6 +42,10 @@ if ($accion === 'eliminar') {
     $sql = "DELETE FROM `usuario` WHERE `usuario`.`idusuario` = ?";
     $stmt = $conexion->prepare($sql);
     $stmt->execute([$idusuario]);
+    $_SESSION['mensaje'] = 'Usuario eliminado correctamente';
+    $_SESSION['tipo'] = 'warning';
+    header('Location: vista_usuario.php');
+    exit();
 }
 
 // Cargar usuarios para la tabla
