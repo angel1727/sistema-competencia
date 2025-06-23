@@ -1,137 +1,195 @@
+<?php include '../secciones/postulantes.php'; ?>
 <?php include '../templades/cabecera.php'; ?>
 
- <div class="card">
-    <div class="card-header d-flex justify-content-between align-items-center">
-      <h5 class="mb-0">Lista de Postulantes</h5>
-      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar Postulante</button>
-    </div>
-    <div class="card-body">
-      <table class="table table-bordered table-striped">
-        <thead class="table-light">
-          <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>CI</th>
-            <th>Ciudad</th>
-            <th>Email</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Ejemplo de fila -->
-          <tr>
-            <td>Juan</td>
-            <td>Pérez</td>
-            <td>1234567</td>
-            <td>La Paz</td>
-            <td>juan@email.com</td>
-            <td>
-              <button class="btn btn-sm btn-warning">Editar</button>
-              <button class="btn btn-sm btn-danger">Eliminar</button>
-            </td>
-          </tr>
-          <!-- Aquí se añadirán más filas dinámicamente -->
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- Modal Agregar Postulante -->
-  <div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="modalAgregarLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <form id="formPostulante">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalAgregarLabel">Agregar Postulante</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-          </div>
-          <div class="modal-body row g-3">
-
-            <!-- Campos del formulario -->
-            <div class="col-md-6">
-              <label class="form-label">Nombre</label>
-              <input type="text" class="form-control" name="nombre" required>
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">Apellido</label>
-              <input type="text" class="form-control" name="apellido" required>
-            </div>
-
-            <div class="col-md-4">
-              <label class="form-label">CI</label>
-              <input type="text" class="form-control" name="ci" required>
-            </div>
-
-            <div class="col-md-4">
-              <label class="form-label">Ciudad</label>
-              <input type="text" class="form-control" name="ciudad">
-            </div>
-
-            <div class="col-md-4">
-              <label class="form-label">Dirección</label>
-              <input type="text" class="form-control" name="direccion">
-            </div>
-
-            <div class="col-md-4">
-              <label class="form-label">Nacionalidad</label>
-              <input type="text" class="form-control" name="nacionalidad">
-            </div>
-
-            <div class="col-md-4">
-              <label class="form-label">Teléfono Móvil</label>
-              <input type="text" class="form-control" name="telefono_movil">
-            </div>
-
-            <div class="col-md-4">
-              <label class="form-label">Teléfono Fijo</label>
-              <input type="text" class="form-control" name="telefono_fijo">
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">Email</label>
-              <input type="email" class="form-control" name="email">
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">NIT</label>
-              <input type="text" class="form-control" name="nit">
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">Registro SIGEP</label>
-              <input type="text" class="form-control" name="registro_sigep">
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">Matrícula de Comercio</label>
-              <input type="text" class="form-control" name="matricula_comercio">
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">Seguro de Salud</label>
-              <input type="text" class="form-control" name="seguro_salud">
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">Seguro de Riesgo</label>
-              <input type="text" class="form-control" name="seguro_riesgo">
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">Fecha de Registro</label>
-              <input type="date" class="form-control" name="fecha_registro">
-            </div>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Guardar Postulante</button>
-          </div>
-        </form>
+<div class="row g-4">
+  <!-- Panel lateral de acciones -->
+  <div class="col-md-4">
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-orange text-white fw-bold text-center">
+        Panel de Control
+      </div>
+      <div class="card-body text-center">
+        <button class="btn btn-success w-100 mb-2" data-bs-toggle="modal" data-bs-target="#modalAgregar">
+          <i class="bi bi-person-plus-fill me-1"></i> Agregar
+        </button>
+        <button id="btnEditar" class="btn btn-warning w-100 mb-2" disabled>
+          <i class="bi bi-pencil-fill me-1"></i> Editar
+        </button>
+        <button id="btnEliminar" class="btn btn-danger w-100" disabled>
+          <i class="bi bi-trash-fill me-1"></i> Eliminar
+        </button>
       </div>
     </div>
   </div>
+
+  <!-- Sección principal de tarjetas -->
+  <div class="col-md-8">
+    <div class="card-body" style="max-height: 80vh; overflow-y: auto;">
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-secondary text-white fw-bold text-center">
+          Lista de Postulantes
+        </div>
+        <div class="card-body">
+          <!-- Buscador -->
+          <div class="input-group mb-3">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <input type="text" id="buscadorPostulante" class="form-control" placeholder="Buscar por nombre, ciudad o rol">
+          </div>
+
+          <!-- Tarjetas de postulantes -->
+          <form id="formPostulantes" method="post">
+            <input type="hidden" name="accion" value="eliminar_multiple">
+            <div class="row" id="postulantesList">
+              <?php if (!empty($postulantes)): ?>
+                <?php foreach ($postulantes as $postulante): ?>
+                  <div class="col-12 col-sm-6 col-lg-6 mb-4">
+                    <div class="card h-100 shadow-sm card-selectable position-relative"
+                        data-postulante='<?= json_encode($postulante) ?>'
+                        data-id="<?= $postulante['idpostulante'] ?>">
+                      <div class="form-check position-absolute top-0 end-0 m-2">
+                        <input class="form-check-input seleccionPostulante" type="checkbox" name="ids[]" value="<?= $postulante['idpostulante'] ?>">
+                      </div>
+                      
+                      <!-- SCROLL dentro del card-body -->
+                      <div class="card-body" style="max-height: 300px; overflow-y: auto;">
+                        <h5 class="card-title"><?= $postulante['nombre'] . ' ' . $postulante['apellido'] ?></h5>
+                        <p class="card-text"><strong>CI:</strong> <?= $postulante['ci'] ?></p>
+                        <p class="card-text"><strong>Ciudad:</strong> <?= $postulante['ciudad'] ?></p>
+                        <p class="card-text"><strong>Dirección:</strong> <?= $postulante['direccion'] ?></p>
+                        <p class="card-text"><strong>Tel. Móvil:</strong> <?= $postulante['celular'] ?></p>
+                        <p class="card-text"><strong>Tel. Fijo:</strong> <?= $postulante['telefono'] ?></p>
+                        <p class="card-text"><strong>NIT:</strong> <?= $postulante['nit'] ?></p>
+                        <p class="card-text"><strong>Registro SIGEP:</strong> <?= $postulante['sigep'] ?></p>
+                        <p class="card-text"><strong>Matrícula Comercio:</strong> <?= $postulante['matricula'] ?></p>
+                        <p class="card-text"><strong>Seguro Salud:</strong> <?= $postulante['seguro'] ?></p>
+                        <p class="card-text"><strong>Seguro Riesgo:</strong> <?= $postulante['sriesgos'] ?></p>
+                        <p class="card-text"><strong>Fecha Registro:</strong> <?= $postulante['fecha_registro'] ?></p>
+                      </div>
+                    </div>
+                  </div>
+
+                <?php endforeach; ?>
+              <?php else: ?>
+                <div class="col-12 text-center">
+                  <p>No hay postulantes registrados.</p>
+                </div>
+              <?php endif; ?>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Script para manejar la selección -->
+<script>
+  const cards = document.querySelectorAll('.card-selectable');
+  const btnEditar = document.getElementById('btnEditar');
+  const btnEliminar = document.getElementById('btnEliminar');
+
+  let selectedCard = null;
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Remover selección anterior
+      cards.forEach(c => c.classList.remove('border-primary', 'border-3'));
+      
+      // Marcar nueva selección
+      card.classList.add('border-primary', 'border-3');
+      selectedCard = card;
+
+      // Activar botones
+      btnEditar.disabled = false;
+      btnEliminar.disabled = false;
+    });
+  });
+
+  btnEditar.addEventListener('click', () => {
+    if (selectedCard) {
+      const data = JSON.parse(selectedCard.dataset.postulante);
+      const modal = new bootstrap.Modal(document.getElementById('modalAgregar'));
+      // Aquí puedes cargar datos al modal, ejemplo:
+      document.querySelector('#modalAgregar input[name="nombre"]').value = data.nombre;
+      // ...
+      modal.show();
+    }
+  });
+
+  btnEliminar.addEventListener('click', () => {
+    if (selectedCard) {
+      const id = selectedCard.dataset.id;
+
+      Swal.fire({
+        title: '¿Estás seguro?',
+        text: "Esta acción eliminará el postulante.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Sí, eliminar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const form = document.createElement('form');
+          form.method = 'post';
+          form.innerHTML = `
+            <input type="hidden" name="accion" value="eliminar">
+            <input type="hidden" name="id" value="${id}">
+          `;
+          document.body.appendChild(form);
+          form.submit();
+        }
+      });
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   <div class="p-4 bg-light">
     <div class="container">
         <h2 class="mb-4">Dashboard de Postulantes</h2>
@@ -191,6 +249,7 @@
         config
         );
     </script>
+
 
 
   </div>

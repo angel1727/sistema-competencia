@@ -24,6 +24,7 @@
             crossorigin="anonymous"
         ></script>
 
+        
         <script>
             document.getElementById('normas').addEventListener('change', function () {
                 const seleccionadas = Array.from(this.selectedOptions).map(opt => opt.value);
