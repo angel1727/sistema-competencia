@@ -59,6 +59,13 @@
         border: 2px solid white;
         }
 
+        .card-selectable:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+        cursor: pointer;
+        }
+
+
         </style>
     </head>
 

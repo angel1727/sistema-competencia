@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['accion'] === 'crear') {
     $ci = $_POST['ci'];
     $ciudad = $_POST['ciudad'];
     $direccion = $_POST['direccion'];
+    $email = $_POST ['email'];
     $celular = $_POST['celular'];
     $telefono = $_POST['telefono'];
     $nit = $_POST['nit'];
@@ -23,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['accion'] === 'crear') {
     $sql = "INSERT INTO postulante (nombre, apellido, ci, ciudad, direccion, celular, telefono, nit, sigep, matricula, seguro, sriesgos, fecha_registro) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$nombre, $apellido, $ci, $ciudad, $direccion, $celular, $telefono, $nit, $sigep, $matricula, $seguro, $sriesgos, $fecha_registro]);
+    $stmt->execute([$nombre, $apellido, $ci, $ciudad, $direccion,$email, $celular, $telefono, $nit, $sigep, $matricula, $seguro, $sriesgos, $fecha_registro]);
 }
 
 // Leer postulantes
@@ -39,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['accion'] === 'actualizar') 
     $ci = $_POST['ci'];
     $ciudad = $_POST['ciudad'];
     $direccion = $_POST['direccion'];
+    $email = $_POST ['email'];
     $celular = $_POST['celular'];
     $telefono = $_POST['telefono'];
     $nit = $_POST['nit'];
@@ -48,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['accion'] === 'actualizar') 
     $sriesgo = $_POST['sriesgos'];
     $fecha_registro = $_POST['fecha_registro'];
 
-    $sql = "UPDATE postulante SET nombre = ?, apellido = ?, $ci = ?, $ciudad = ?, $direccion = ?, $celular = ?, $telefono = ?, $nit = ?, $sigep = ?, $matricula = ?, $seguro = ?, $sriesgos = ?, $fecha_registro = ? WHERE idPostulante = ?";
+    $sql = "UPDATE postulante SET nombre = ?, apellido = ?, $ci = ?, $ciudad = ?, $direccion = ?, $email = ?, $celular = ?, $telefono = ?, $nit = ?, $sigep = ?, $matricula = ?, $seguro = ?, $sriesgos = ?, $fecha_registro = ? WHERE idPostulante = ?";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$nombre, $apellido, $ci, $ciudad, $direccion, $celular, $telefono, $nit, $sigep, $matricula, $seguro, $sriesgos, $fecha_registro]);
+    $stmt->execute([$nombre, $apellido, $ci, $ciudad, $direccion, $email, $celular, $telefono, $nit, $sigep, $matricula, $seguro, $sriesgos, $fecha_registro]);
 }
 ?>
