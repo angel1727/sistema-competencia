@@ -47,7 +47,7 @@
               <button class="nav-link" id="tab-esquemas" data-bs-toggle="tab" data-bs-target="#evaluaciones" type="button">Experiencia en Evaluaciones</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="tab-esquemas" data-bs-toggle="tab" data-bs-target="#esquemas" type="button">Esquemas</button>
+              <button class="nav-link" id="tab-esquemas" data-bs-toggle="tab" data-bs-target="#esquemas" type="button">Experiencia Tecnica por Esquema</button>
             </li>
           </ul>
 
@@ -227,7 +227,7 @@
                 </div>
                 <div class="col-md-6">
                   <label class="form-label">Telefono de la Persona de Referencia:</label>
-                  <input type="text" name="personareferencia" class="form-control">
+                  <input type="text" name="telefonoreferencia" class="form-control">
                 </div>
                 <div class="col-md-6">
                   <label class="form-label">Descripcion de las Actividades, Responsabilidades, Funciones Asignada:</label>
@@ -416,22 +416,22 @@
               <!-- Botón para agregar otro ensayo -->
               <div class="text-end">
                 <button type="button" class="btn btn-outline-primary" onclick="agregarEnsayo()">
-                  <i class="bi bi-plus-circle me-1"></i> Agregar otro ensayo
+                  <i class="bi bi-plus-circle me-1"></i> Agregar otro 17025 ensayo
                 </button>
               </div>
 
             <!-- ISO 17025 calibracion -->
             <hr class="mt-4 mb-3">
             <h5 class="text-secondary">ISO/IEC 17025 Lab. de Calibracion</h5>
-              <div id="ensayoContainer">
-                <div class="ensayo-block border p-3 rounded mb-3 position-relative">
+              <div id="calibracionContainer">
+                <div class="calibracion-block border p-3 rounded mb-3 position-relative">
                   <div class="row g-3">
                     <div class="col-md-4">
-                      <label class="form-label">Ensayo:</label>
+                      <label class="form-label">Magnitud:</label>
                       <input type="text" name="ensayo[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Técnica:</label>
+                      <label class="form-label">Item Bajo Calibracion:</label>
                       <input type="text" name="tecnica[]" class="form-control">
                     </div>
                     <div class="col-md-4">
@@ -439,56 +439,60 @@
                       <input type="text" name="itemensato[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Item de Ensayo / Matriz:</label>
-                      <input type="text" name="tiempoexp[]" class="form-control">
+                      <label class="form-label">Años de Experiencia:</label>
+                      <input type="number" name="tiempoexp[]" class="form-control" min="1">
                     </div>
                   </div>
                   <!-- Botón eliminar este bloque -->
-                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarEnsayo(this)">
+                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarCalibracion(this)">
                     <i class="bi bi-x-lg"></i>
                   </button>
                 </div>
               </div>
               <!-- Botón para agregar otro ensayo -->
               <div class="text-end">
-                <button type="button" class="btn btn-outline-primary" onclick="agregarEnsayo()">
-                  <i class="bi bi-plus-circle me-1"></i> Agregar otro ensayo
+                <button type="button" class="btn btn-outline-primary" onclick="agregarCalibracion()">
+                  <i class="bi bi-plus-circle me-1"></i> Agregar otro 17025 Calib.
                 </button>
               </div>
 
             <!-- script de añadir esquema 15189 clinicos -->
             <hr class="mt-4 mb-3">
             <h5 class="text-secondary">ISO/IEC 15189 Lab. clinicos</h5>
-              <div id="ensayoContainer">
-                <div class="ensayo-block border p-3 rounded mb-3 position-relative">
+              <div id="clinicoContainer">
+                <div class="clinico-block border p-3 rounded mb-3 position-relative">
                   <div class="row g-3">
                     <div class="col-md-4">
-                      <label class="form-label">Ensayo:</label>
-                      <input type="text" name="ensayo[]" class="form-control">
+                      <label class="form-label">Area/Campo:</label>
+                      <input type="text" name="area[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Técnica:</label>
+                      <label class="form-label">Analisi/Ensayo/Examen:</label>
+                      <input type="text" name="analisis[]" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Tecnica:</label>
                       <input type="text" name="tecnica[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Norma/Documento:</label>
-                      <input type="text" name="itemensato[]" class="form-control">
+                      <label class="form-label">Muestra / Matriz:</label>
+                      <input type="text" name="muestra[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Item de Ensayo / Matriz:</label>
-                      <input type="text" name="tiempoexp[]" class="form-control">
+                      <label class="form-label">Años de Experiencia:</label>
+                      <input type="number" name="tiempoexp[]" class="form-control" min="1">
                     </div>
                   </div>
                   <!-- Botón eliminar este bloque -->
-                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarEnsayo(this)">
+                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarClinico(this)">
                     <i class="bi bi-x-lg"></i>
                   </button>
                 </div>
               </div>
               <!-- Botón para agregar otro ensayo -->
               <div class="text-end">
-                <button type="button" class="btn btn-outline-primary" onclick="agregarEnsayo()">
-                  <i class="bi bi-plus-circle me-1"></i> Agregar otro ensayo
+                <button type="button" class="btn btn-outline-primary" onclick="agregarClinico()">
+                  <i class="bi bi-plus-circle me-1"></i> Agregar otro 15189
                 </button>
               </div>
 
@@ -496,36 +500,40 @@
             <!-- script de añadir esquema 17043 experto tecnico estadistico -->
             <hr class="mt-4 mb-3">
             <h5 class="text-secondary">ISO/IEC 17043 Experto Tecnico Estadistico</h5>
-              <div id="ensayoContainer">
-                <div class="ensayo-block border p-3 rounded mb-3 position-relative">
+              <div id="ETEContainer">
+                <div class="ETE-block border p-3 rounded mb-3 position-relative">
                   <div class="row g-3">
                     <div class="col-md-4">
-                      <label class="form-label">Ensayo:</label>
-                      <input type="text" name="ensayo[]" class="form-control">
+                      <label class="form-label">Nombre del EA o CIL en el que Participo:</label>
+                      <input type="text" name="nombre[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Técnica:</label>
-                      <input type="text" name="tecnica[]" class="form-control">
+                      <label class="form-label">Empresa u Organizacion que lo Contrato para el Trartamiento de Datos:</label>
+                      <input type="text" name="empresa[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Norma/Documento:</label>
-                      <input type="text" name="itemensato[]" class="form-control">
+                      <label class="form-label">Software utilizado para el Tratamiento de Datos:</label>
+                      <input type="text" name="software[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Item de Ensayo / Matriz:</label>
-                      <input type="text" name="tiempoexp[]" class="form-control">
+                      <label class="form-label">Normas Aplicadas para el Tratamientos de Datos:</label>
+                      <input type="text" name="normas[]" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Tiempo de Desarrollo de EA o CIL (Meses):</label>
+                      <input type="number" name="tiempod[]" class="form-control" min="1">
                     </div>
                   </div>
                   <!-- Botón eliminar este bloque -->
-                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarEnsayo(this)">
+                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarETE(this)">
                     <i class="bi bi-x-lg"></i>
                   </button>
                 </div>
               </div>
               <!-- Botón para agregar otro ensayo -->
               <div class="text-end">
-                <button type="button" class="btn btn-outline-primary" onclick="agregarEnsayo()">
-                  <i class="bi bi-plus-circle me-1"></i> Agregar otro ensayo
+                <button type="button" class="btn btn-outline-primary" onclick="agregarETE()">
+                  <i class="bi bi-plus-circle me-1"></i> Agregar 17043 Exp. Tec. Est
                 </button>
               </div>
 
@@ -533,11 +541,11 @@
             <!-- script de añadir esquema 17043 experto tecnico -->
             <hr class="mt-4 mb-3">
             <h5 class="text-secondary">ISO/IEC 17043 Experto Tecnico</h5>
-              <div id="ensayoContainer">
-                <div class="ensayo-block border p-3 rounded mb-3 position-relative">
+              <div id="ETContainer">
+                <div class="ET-block border p-3 rounded mb-3 position-relative">
                   <div class="row g-3">
                     <div class="col-md-4">
-                      <label class="form-label">Ensayo:</label>
+                      <label class="form-label">Ensayo/Magnitud:</label>
                       <input type="text" name="ensayo[]" class="form-control">
                     </div>
                     <div class="col-md-4">
@@ -549,20 +557,24 @@
                       <input type="text" name="itemensato[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Item de Ensayo / Matriz:</label>
-                      <input type="text" name="tiempoexp[]" class="form-control">
+                      <label class="form-label">Item de Ensayo/Matriz/Item Bajo Calibracion:</label>
+                      <input type="text" name="itemensayo[]" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Años de Experiencia:</label>
+                      <input type="number" name="tiempoexp[]" class="form-control" min="1">
                     </div>
                   </div>
                   <!-- Botón eliminar este bloque -->
-                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarEnsayo(this)">
+                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarET(this)">
                     <i class="bi bi-x-lg"></i>
                   </button>
                 </div>
               </div>
               <!-- Botón para agregar otro ensayo -->
               <div class="text-end">
-                <button type="button" class="btn btn-outline-primary" onclick="agregarEnsayo()">
-                  <i class="bi bi-plus-circle me-1"></i> Agregar otro ensayo
+                <button type="button" class="btn btn-outline-primary" onclick="agregarET()">
+                  <i class="bi bi-plus-circle me-1"></i> Agregar otro 17043 Exp. Tec
                 </button>
               </div>
             
@@ -572,73 +584,85 @@
             <!-- script de añadir esquema 17020  -->
             <hr class="mt-4 mb-3">
             <h5 class="text-secondary">ISO/IEC 17020 Organismo de Inspeccion</h5>
-              <div id="ensayoContainer">
-                <div class="ensayo-block border p-3 rounded mb-3 position-relative">
+              <div id="OIContainer">
+                <div class="OI-block border p-3 rounded mb-3 position-relative">
                   <div class="row g-3">
                     <div class="col-md-4">
-                      <label class="form-label">Ensayo:</label>
-                      <input type="text" name="ensayo[]" class="form-control">
+                      <label class="form-label">Campo o Sector de Inspeccion:</label>
+                      <input type="text" name="campo[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Técnica:</label>
-                      <input type="text" name="tecnica[]" class="form-control">
+                      <label class="form-label">Sub-Sector:</label>
+                      <input type="text" name="sector[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Norma/Documento:</label>
-                      <input type="text" name="itemensato[]" class="form-control">
+                      <label class="form-label">Item Inspeccionado:</label>
+                      <input type="text" name="iteminspeccion[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Item de Ensayo / Matriz:</label>
-                      <input type="text" name="tiempoexp[]" class="form-control">
+                      <label class="form-label">Metodo o Documento normativo para la Inspeccion:</label>
+                      <input type="text" name="matodo[]" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Años de Experiencia:</label>
+                      <input type="number" name="tiempoexp[]" class="form-control" min="1">
                     </div>
                   </div>
                   <!-- Botón eliminar este bloque -->
-                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarEnsayo(this)">
+                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarOI(this)">
                     <i class="bi bi-x-lg"></i>
                   </button>
                 </div>
               </div>
               <!-- Botón para agregar otro ensayo -->
               <div class="text-end">
-                <button type="button" class="btn btn-outline-primary" onclick="agregarEnsayo()">
-                  <i class="bi bi-plus-circle me-1"></i> Agregar otro ensayo
+                <button type="button" class="btn btn-outline-primary" onclick="agregarOI()">
+                  <i class="bi bi-plus-circle me-1"></i> Agregar otro 17020
                 </button>
               </div>
 
 
             <!-- script de añadir esquema 17065  -->
             <hr class="mt-4 mb-3">
-            <h5 class="text-secondary">ISO/IEC 17065 Organismo de Certificacion de Certificacion de Productos</h5>
-              <div id="ensayoContainer">
-                <div class="ensayo-block border p-3 rounded mb-3 position-relative">
+            <h5 class="text-secondary">ISO/IEC 17065 Organismo de Certificacion de Productos</h5>
+              <div id="OCPContainer">
+                <div class="OCP-block border p-3 rounded mb-3 position-relative">
                   <div class="row g-3">
                     <div class="col-md-4">
-                      <label class="form-label">Ensayo:</label>
-                      <input type="text" name="ensayo[]" class="form-control">
+                      <label class="form-label">Tipo de Certificacion</label>
+                      <input type="text" name="tipocert[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Técnica:</label>
-                      <input type="text" name="tecnica[]" class="form-control">
+                      <label class="form-label">Producto/Proceso/Servicio:</label>
+                      <input type="text" name="producto[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Norma/Documento:</label>
-                      <input type="text" name="itemensato[]" class="form-control">
+                      <label class="form-label">Documento Normativo:</label>
+                      <input type="text" name="documentos[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Item de Ensayo / Matriz:</label>
-                      <input type="text" name="tiempoexp[]" class="form-control">
+                      <label class="form-label">Division NACE:</label>
+                      <input type="text" name="division[]" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Codigo CPA:</label>
+                      <input type="text" name="codigo[]" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Años de Experiencia:</label>
+                      <input type="number" name="tiempoexp[]" class="form-control" min="1">
                     </div>
                   </div>
                   <!-- Botón eliminar este bloque -->
-                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarEnsayo(this)">
+                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarOCP(this)">
                     <i class="bi bi-x-lg"></i>
                   </button>
                 </div>
               </div>
               <!-- Botón para agregar otro ensayo -->
               <div class="text-end">
-                <button type="button" class="btn btn-outline-primary" onclick="agregarEnsayo()">
-                  <i class="bi bi-plus-circle me-1"></i> Agregar otro ensayo
+                <button type="button" class="btn btn-outline-primary" onclick="agregarOCP()">
+                  <i class="bi bi-plus-circle me-1"></i> Agregar otro 17065
                 </button>
               </div>
 
@@ -646,37 +670,41 @@
 
             <!-- script de añadir esquema 17021-1  -->
             <hr class="mt-4 mb-3">
-            <h5 class="text-secondary">ISO/IEC 17021-1 Organismo de Certificacion de Certificacion de Sistemas de Gestion</h5>
-              <div id="ensayoContainer">
-                <div class="ensayo-block border p-3 rounded mb-3 position-relative">
+            <h5 class="text-secondary">ISO/IEC 17021-1 Organismo de Certificacion de Sistemas de Gestion</h5>
+              <div id="OCSGContainer">
+                <div class="OCSG-block border p-3 rounded mb-3 position-relative">
                   <div class="row g-3">
                     <div class="col-md-4">
-                      <label class="form-label">Ensayo:</label>
-                      <input type="text" name="ensayo[]" class="form-control">
+                      <label class="form-label">Sistemas de Gestion:</label>
+                      <input type="text" name="sisges[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Técnica:</label>
-                      <input type="text" name="tecnica[]" class="form-control">
+                      <label class="form-label">Norma:</label>
+                      <input type="text" name="norma[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Norma/Documento:</label>
-                      <input type="text" name="itemensato[]" class="form-control">
+                      <label class="form-label">Codigo IAF-Sector:</label>
+                      <input type="text" name="codigo[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Item de Ensayo / Matriz:</label>
-                      <input type="text" name="tiempoexp[]" class="form-control">
+                      <label class="form-label">Nombre del Sector:</label>
+                      <input type="text" name="sector[]" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Años de Experiencia:</label>
+                      <input type="number" name="tiempoexp[]" class="form-control" min="1">
                     </div>
                   </div>
                   <!-- Botón eliminar este bloque -->
-                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarEnsayo(this)">
+                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarOCSG(this)">
                     <i class="bi bi-x-lg"></i>
                   </button>
                 </div>
               </div>
               <!-- Botón para agregar otro ensayo -->
               <div class="text-end">
-                <button type="button" class="btn btn-outline-primary" onclick="agregarEnsayo()">
-                  <i class="bi bi-plus-circle me-1"></i> Agregar otro ensayo
+                <button type="button" class="btn btn-outline-primary" onclick="agregarOCSG()">
+                  <i class="bi bi-plus-circle me-1"></i> Agregar otro 17021
                 </button>
               </div>
 
@@ -685,36 +713,40 @@
             <!-- script de añadir esquema 17024  -->
             <hr class="mt-4 mb-3">
             <h5 class="text-secondary">ISO/IEC 17024 Certificacion de Personas</h5>
-              <div id="ensayoContainer">
-                <div class="ensayo-block border p-3 rounded mb-3 position-relative">
+              <div id="CPContainer">
+                <div class="CP-block border p-3 rounded mb-3 position-relative">
                   <div class="row g-3">
                     <div class="col-md-4">
-                      <label class="form-label">Ensayo:</label>
-                      <input type="text" name="ensayo[]" class="form-control">
+                      <label class="form-label">Sector o Campo:</label>
+                      <input type="text" name="secto[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Técnica:</label>
-                      <input type="text" name="tecnica[]" class="form-control">
+                      <label class="form-label">Actividad Espesifica:</label>
+                      <input type="text" name="actividad[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Norma/Documento:</label>
-                      <input type="text" name="itemensato[]" class="form-control">
+                      <label class="form-label">Item/Matriz:</label>
+                      <input type="text" name="item[]" class="form-control">
                     </div>
                     <div class="col-md-4">
-                      <label class="form-label">Item de Ensayo / Matriz:</label>
+                      <label class="form-label">Normas/Documentos Utilizados para realizar la Evaluacion:</label>
                       <input type="text" name="tiempoexp[]" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Años de Experiencia:</label>
+                      <input type="number" name="tiempoexp[]" class="form-control" min="1">
                     </div>
                   </div>
                   <!-- Botón eliminar este bloque -->
-                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarEnsayo(this)">
+                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarCP(this)">
                     <i class="bi bi-x-lg"></i>
                   </button>
                 </div>
               </div>
               <!-- Botón para agregar otro ensayo -->
               <div class="text-end">
-                <button type="button" class="btn btn-outline-primary" onclick="agregarEnsayo()">
-                  <i class="bi bi-plus-circle me-1"></i> Agregar otro ensayo
+                <button type="button" class="btn btn-outline-primary" onclick="agregarCP()">
+                  <i class="bi bi-plus-circle me-1"></i> Agregar otro 17024
                 </button>
               </div>
 
@@ -723,8 +755,8 @@
             <!-- script de añadir esquema 17034  -->
             <hr class="mt-4 mb-3">
             <h5 class="text-secondary">ISO/IEC 17034 Proveedor de Materiales de Referencia</h5>
-              <div id="ensayoContainer">
-                <div class="ensayo-block border p-3 rounded mb-3 position-relative">
+              <div id="PMRContainer">
+                <div class="PMR-block border p-3 rounded mb-3 position-relative">
                   <div class="row g-3">
                     <div class="col-md-4">
                       <label class="form-label">Ensayo:</label>
@@ -736,23 +768,31 @@
                     </div>
                     <div class="col-md-4">
                       <label class="form-label">Norma/Documento:</label>
-                      <input type="text" name="itemensato[]" class="form-control">
+                      <input type="text" name="documento[]" class="form-control">
                     </div>
                     <div class="col-md-4">
                       <label class="form-label">Item de Ensayo / Matriz:</label>
-                      <input type="text" name="tiempoexp[]" class="form-control">
+                      <input type="text" name="item[]" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Norma Aplicada para la Preparacion de los Items:</label>
+                      <input type="text" name="norma[]" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Años de Experiencia:</label>
+                      <input type="number" name="tiempoexp[]" class="form-control" min="1">
                     </div>
                   </div>
                   <!-- Botón eliminar este bloque -->
-                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarEnsayo(this)">
+                  <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" onclick="eliminarPMR(this)">
                     <i class="bi bi-x-lg"></i>
                   </button>
                 </div>
               </div>
               <!-- Botón para agregar otro ensayo -->
               <div class="text-end">
-                <button type="button" class="btn btn-outline-primary" onclick="agregarEnsayo()">
-                  <i class="bi bi-plus-circle me-1"></i> Agregar otro ensayo
+                <button type="button" class="btn btn-outline-primary" onclick="agregarPMR()">
+                  <i class="bi bi-plus-circle me-1"></i> Agregar otro 17034
                 </button>
               </div>
 
@@ -1057,43 +1097,263 @@
     if (total > 1) {
       container.removeChild(block);
     } else {
-      alert("Debe haber al menos un bloque de ensayo.");
+      alert("Debe haber al menos un bloque de 17025 ensayo.");
     }
   }
 </script>
 
 <!-- script de añadir esquema 17025 calibracion -->
 
+<script>
+  function agregarCalibracion() {
+    const container = document.getElementById('calibracionContainer');
+    const bloques = container.getElementsByClassName('calibracion-block');
+    const original = bloques[0];
+
+    const clon = original.cloneNode(true);
+    const inputs = clon.querySelectorAll('input');
+    inputs.forEach(input => input.value = '');
+
+    container.appendChild(clon);
+  }
+
+  function eliminarCalibracion(boton) {
+    const block = boton.closest('.calibracion-block');
+    const container = document.getElementById('calibracionContainer');
+    const total = container.getElementsByClassName('calibracion-block').length;
+
+    if (total > 1) {
+      container.removeChild(block);
+    } else {
+      alert("Debe haber al menos un bloque de 17025 calibracion.");
+    }
+  }
+</script>
 
 <!-- script de añadir esquema 15189 clinicos -->
 
+<script>
+  function agregarClinico() {
+    const container = document.getElementById('clinicoContainer');
+    const bloques = container.getElementsByClassName('clinico-block');
+    const original = bloques[0];
+
+    const clon = original.cloneNode(true);
+    const inputs = clon.querySelectorAll('input');
+    inputs.forEach(input => input.value = '');
+
+    container.appendChild(clon);
+  }
+
+  function eliminarClinico(boton) {
+    const block = boton.closest('.clinico-block');
+    const container = document.getElementById('clinicoContainer');
+    const total = container.getElementsByClassName('clinico-block').length;
+
+    if (total > 1) {
+      container.removeChild(block);
+    } else {
+      alert("Debe haber al menos un bloque de 15189.");
+    }
+  }
+</script>
 
 <!-- script de añadir esquema 17043 experto tecnico estadistico -->
 
+<script>
+  function agregarETE() {
+    const container = document.getElementById('ETEContainer');
+    const bloques = container.getElementsByClassName('ETE-block');
+    const original = bloques[0];
+
+    const clon = original.cloneNode(true);
+    const inputs = clon.querySelectorAll('input');
+    inputs.forEach(input => input.value = '');
+
+    container.appendChild(clon);
+  }
+
+  function eliminarETE(boton) {
+    const block = boton.closest('.ETE-block');
+    const container = document.getElementById('ETEContainer');
+    const total = container.getElementsByClassName('ETE-block').length;
+
+    if (total > 1) {
+      container.removeChild(block);
+    } else {
+      alert("Debe haber al menos un bloque de 17043 ETE.");
+    }
+  }
+</script>
 
 <!-- script de añadir esquema 17043 experto tecnico -->
 
+<script>
+  function agregarET() {
+    const container = document.getElementById('ETContainer');
+    const bloques = container.getElementsByClassName('ET-block');
+    const original = bloques[0];
 
+    const clon = original.cloneNode(true);
+    const inputs = clon.querySelectorAll('input');
+    inputs.forEach(input => input.value = '');
+
+    container.appendChild(clon);
+  }
+
+  function eliminarET(boton) {
+    const block = boton.closest('.ET-block');
+    const container = document.getElementById('ETContainer');
+    const total = container.getElementsByClassName('ET-block').length;
+
+    if (total > 1) {
+      container.removeChild(block);
+    } else {
+      alert("Debe haber al menos un bloque de 17043 ET.");
+    }
+  }
+</script>
 
 <!-- script de añadir esquema 17020  -->
 
+<script>
+  function agregarOI() {
+    const container = document.getElementById('OIContainer');
+    const bloques = container.getElementsByClassName('OI-block');
+    const original = bloques[0];
+
+    const clon = original.cloneNode(true);
+    const inputs = clon.querySelectorAll('input');
+    inputs.forEach(input => input.value = '');
+
+    container.appendChild(clon);
+  }
+
+  function eliminarOI(boton) {
+    const block = boton.closest('.OI-block');
+    const container = document.getElementById('OIContainer');
+    const total = container.getElementsByClassName('OI-block').length;
+
+    if (total > 1) {
+      container.removeChild(block);
+    } else {
+      alert("Debe haber al menos un bloque de 17020.");
+    }
+  }
+</script>
 
 <!-- script de añadir esquema 17065  -->
 
+<script>
+  function agregarOCP() {
+    const container = document.getElementById('OCPContainer');
+    const bloques = container.getElementsByClassName('OCP-block');
+    const original = bloques[0];
 
+    const clon = original.cloneNode(true);
+    const inputs = clon.querySelectorAll('input');
+    inputs.forEach(input => input.value = '');
+
+    container.appendChild(clon);
+  }
+
+  function eliminarOCP(boton) {
+    const block = boton.closest('.OCP-block');
+    const container = document.getElementById('OCPContainer');
+    const total = container.getElementsByClassName('OCP-block').length;
+
+    if (total > 1) {
+      container.removeChild(block);
+    } else {
+      alert("Debe haber al menos un bloque de 17065.");
+    }
+  }
+</script>
 
 <!-- script de añadir esquema 17021-1  -->
 
+<script>
+  function agregarOCSG() {
+    const container = document.getElementById('OCSGContainer');
+    const bloques = container.getElementsByClassName('OCSG-block');
+    const original = bloques[0];
 
+    const clon = original.cloneNode(true);
+    const inputs = clon.querySelectorAll('input');
+    inputs.forEach(input => input.value = '');
+
+    container.appendChild(clon);
+  }
+
+  function eliminarOCSG(boton) {
+    const block = boton.closest('.OCSG-block');
+    const container = document.getElementById('OCSGContainer');
+    const total = container.getElementsByClassName('OCSG-block').length;
+
+    if (total > 1) {
+      container.removeChild(block);
+    } else {
+      alert("Debe haber al menos un bloque de 17021-1.");
+    }
+  }
+</script>
 
 <!-- script de añadir esquema 17024  -->
 
+<script>
+  function agregarCP() {
+    const container = document.getElementById('CPContainer');
+    const bloques = container.getElementsByClassName('CP-block');
+    const original = bloques[0];
 
+    const clon = original.cloneNode(true);
+    const inputs = clon.querySelectorAll('input');
+    inputs.forEach(input => input.value = '');
+
+    container.appendChild(clon);
+  }
+
+  function eliminarCP(boton) {
+    const block = boton.closest('.CP-block');
+    const container = document.getElementById('CPContainer');
+    const total = container.getElementsByClassName('CP-block').length;
+
+    if (total > 1) {
+      container.removeChild(block);
+    } else {
+      alert("Debe haber al menos un bloque de 17024.");
+    }
+  }
+</script>
 
 <!-- script de añadir esquema 17034  -->
 
 
+<script>
+  function agregarPMR() {
+    const container = document.getElementById('PMRContainer');
+    const bloques = container.getElementsByClassName('PMR-block');
+    const original = bloques[0];
 
+    const clon = original.cloneNode(true);
+    const inputs = clon.querySelectorAll('input');
+    inputs.forEach(input => input.value = '');
+
+    container.appendChild(clon);
+  }
+
+  function eliminarPMR(boton) {
+    const block = boton.closest('.PMR-block');
+    const container = document.getElementById('PMRContainer');
+    const total = container.getElementsByClassName('PMR-block').length;
+
+    if (total > 1) {
+      container.removeChild(block);
+    } else {
+      alert("Debe haber al menos un bloque de 17034.");
+    }
+  }
+</script>
 
 
 
@@ -1147,7 +1407,7 @@
 
 
   
-  <div class="p-4 bg-light">
+  <!-- <div class="p-4 bg-light">
     <div class="container">
         <h2 class="mb-4">Dashboard de Postulantes</h2>
 
@@ -1205,7 +1465,7 @@
         document.getElementById('postulantesChart'),
         config
         );
-    </script>
+    </script> -->
 
 
 
