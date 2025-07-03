@@ -44,7 +44,7 @@
               <button class="nav-link" id="tab-exp" data-bs-toggle="tab" data-bs-target="#InformacionLab" type="button">Informacion Laboral</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="tab-esquemas" data-bs-toggle="tab" data-bs-target="#evaluaciones" type="button">Experiencia en Evaluaciones</button>
+              <button class="nav-link" id="tab-esquemas" data-bs-toggle="tab" data-bs-target="#evaluacion" type="button">Experiencia en Evaluaciones</button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="tab-esquemas" data-bs-toggle="tab" data-bs-target="#esquemas" type="button">Experiencia Tecnica por Esquema</button>
@@ -116,7 +116,7 @@
               <div class="row g-3">
                 <div class="col-md-6">
                   <label class="form-label">Nivel Académico:</label>
-                  <input type="text" name="nivelaceademico" class="form-control">
+                  <input type="text" name="nivelacademico" class="form-control">
                 </div>
                 <div class="col-md-6">
                   <label class="form-label">Grado Obtenido:</label>
@@ -285,20 +285,20 @@
 
             </div>
               <!-- Experiencia en evaluaciones  1 y 2-->             
-            <div class="tab-pane fade" id="evaluaciones" role="tabpanel">
+            <div class="tab-pane fade" id="evaluacion" role="tabpanel">
               <h5 class="text-secondary">Experiencia en Evaluaciones y/o Auditorías</h5>
               <div id="evaluacionContainer">
                 <div class="evaluacion-block border p-3 rounded mb-3 position-relative">
                   <div class="row g-3">
-                  <div class="col-md-6">
-                        <label class="form-label">Evaluacion y/o Auditoria:</label>
-                        <select class="form-select" name="iso_norma[]">
-                          <option value="">-- Selecciona --</option>
-                          <option value="ISO/IEC 17025">1ra Parte</option>
-                          <option value="ISO/IEC 17025">2da Parte</option>
-                          <option value="ISO/IEC 15189">3ra Parte</option>
-                        </select>
-                      </div>
+                    <div class="col-md-6">
+                          <label class="form-label">Evaluacion y/o Auditoria:</label>
+                          <select class="form-select" name="evaluacion[]">
+                            <option value="">-- Selecciona --</option>
+                            <option value="ISO/IEC 17025">1ra Parte</option>
+                            <option value="ISO/IEC 17025">2da Parte</option>
+                            <option value="ISO/IEC 15189">3ra Parte</option>
+                          </select>
+                    </div>
                     <div class="col-md-6">
                       <label class="form-label">Organización Contratante del Servicio:</label>
                       <input type="text" name="organizaciont[]" class="form-control">
@@ -404,7 +404,7 @@
                     </div>
                     <div class="col-md-4">
                       <label class="form-label">Item de Ensayo / Matriz:</label>
-                      <input type="text" name="tiempoexp[]" class="form-control">
+                      <input type="text" name="itemensayo[]" class="form-control">
                     </div>
                   </div>
                   <!-- Botón eliminar este bloque -->
