@@ -37,44 +37,36 @@ class AuthController extends Controller { // Hereda de Controller
     public function login() {
         $error_message = '';
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $username = trim($_POST['username'] ?? '');
+            $login_identifier = trim($_POST['usuario'] ?? ''); // Campo del formulario ahora es 'usuario'
             $password = trim($_POST['password'] ?? '');
 
-            if (empty($username) || empty($password)) {
+            if (empty($login_identifier) || empty($password)) {
                 $error_message = "Por favor complete todos los campos.";
             } else {
                 try {
-                    // Idealmente, esta lógica estaría en un UserModel
-                    // $user = $this->userModel->findByUsername($username);
-                    // if ($user && $this->userModel->verifyPassword($password, $user->password_column_name)) { ... }
-
-                    $stmt = $this->db->prepare("SELECT * FROM usuarios WHERE username = :username");
-                    $stmt->bindParam(':username', $username);
+                    // Consultar la tabla 'usuario' usando la columna 'usuario' para el login
+                    $stmt = $this->db->prepare("SELECT idusuario, usuario, password FROM usuario WHERE usuario = :login_identifier");
+                    $stmt->bindParam(':login_identifier', $login_identifier);
                     $stmt->execute();
                     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                    if ($user) {
-                        // ¡¡¡ADVERTENCIA DE SEGURIDAD!!!
-                        // Esto asume contraseñas en TEXTO PLANO. ¡NO HACER ESTO EN PRODUCCIÓN!
-                        // DEBES USAR password_hash() al guardar y password_verify() al comprobar.
-                        if ($password === $user['password']) { // Reemplazar 'password' con el nombre de tu columna
-                            // Login exitoso
-                            $_SESSION['user_id'] = $user['id'];
-                            $_SESSION['username'] = $user['username'];
-                            $this->redirect('/admin/dashboard'); // Usa el método redirect heredado
-                        } else {
-                            $error_message = "Usuario o contraseña incorrectos.";
-                        }
+                    if ($user && password_verify($password, $user['password'])) {
+                        // Login exitoso
+                        $_SESSION['user_id'] = $user['idusuario'];
+                        $_SESSION['username'] = $user['usuario']; // Guardar el contenido de la columna 'usuario' en la sesión
+                        $this->redirect('/admin/dashboard');
                     } else {
                         $error_message = "Usuario o contraseña incorrectos.";
                     }
                 } catch (PDOException $e) {
-                    error_log("Error de login: " . $e->getMessage()); // Loggear el error real
+                    error_log("Error de login: " . $e->getMessage());
                     $error_message = "Error del sistema. Por favor, inténtelo más tarde.";
                 }
             }
+            // Si hay error o no es POST, mostrar formulario de login
             $this->showLoginForm(['error' => $error_message]);
         } else {
+            // Si es GET, simplemente mostrar el formulario
             $this->showLoginForm();
         }
     }

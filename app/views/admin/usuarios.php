@@ -146,7 +146,7 @@ Swal.fire({
           <div class="mb-3">
             <label for="modal_cargo" class="form-label">Cargo</label>
             <input type="text" class="form-control" name="modal_cargo" id="modal_cargo" required>
-          </div>  
+          </div>
 
           <!-- ✅ Checkboxes agregados -->
           <div class="mb-3">
@@ -184,7 +184,7 @@ Swal.fire({
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Selecciona todos los formularios de eliminar
-    document.querySelectorAll('form.d-inline').forEach(function(form) {
+    document.querySelectorAll('.form-eliminar').forEach(function(form) { // Asegurarse que la clase sea .form-eliminar
         form.addEventListener('submit', function(e) {
             e.preventDefault(); // Evita el envío inmediato
             Swal.fire({
@@ -203,7 +203,85 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    // (Opcional) Si el modal se cierra sin guardar, resetearlo a modo "Agregar"
+    const usuarioModalElement = document.getElementById('usuarioModal');
+    if (usuarioModalElement) {
+        usuarioModalElement.addEventListener('hidden.bs.modal', function (event) {
+            prepararModalParaCrear();
+        });
+    }
 });
+
+// Al hacer clic en "Agregar Usuario"
+function prepararModalParaCrear() {
+    const form = document.getElementById('formUsuarioModal');
+    if (!form) return;
+    form.action = '/admin/usuarios/store';
+    document.getElementById('usuarioModalLabel').textContent = 'Agregar Usuario';
+    document.getElementById('modal_idusuario').value = ''; // Limpiar ID
+
+    document.getElementById('modal_nombre').value = '';
+    document.getElementById('modal_apellido').value = '';
+    document.getElementById('modal_usuario').value = '';
+    const passwordInput = document.getElementById('modal_password');
+    if(passwordInput) {
+        passwordInput.value = '';
+        passwordInput.required = true;
+    }
+    const passwordHelp = document.getElementById('passwordHelp');
+    if(passwordHelp) passwordHelp.style.display = 'none';
+
+    document.getElementById('modal_correo').value = '';
+    document.getElementById('modal_cargo').value = '';
+
+    const rolUsuario = document.getElementById('rol_usuario');
+    if (rolUsuario) rolUsuario.checked = true;
+    const rolAdmin = document.getElementById('rol_administrador');
+    if (rolAdmin) rolAdmin.checked = false;
+    const rolSubAdmin = document.getElementById('rol_subadministrador');
+    if (rolSubAdmin) rolSubAdmin.checked = false;
+}
+
+// Al hacer clic en el botón "Editar" de una fila
+function cargarUsuario(id, nombre, apellido, usuario, password_placeholder, correo, cargo, rol) {
+    const form = document.getElementById('formUsuarioModal');
+    if (!form) return;
+    form.action = '/admin/usuarios/update';
+    document.getElementById('usuarioModalLabel').textContent = 'Editar Usuario';
+
+    document.getElementById('modal_idusuario').value = id;
+    document.getElementById('modal_nombre').value = nombre;
+    document.getElementById('modal_apellido').value = apellido;
+    document.getElementById('modal_usuario').value = usuario;
+
+    const passwordInput = document.getElementById('modal_password');
+    if(passwordInput) {
+        passwordInput.value = '';
+        passwordInput.required = false;
+    }
+    const passwordHelp = document.getElementById('passwordHelp');
+    if(passwordHelp) passwordHelp.style.display = 'block';
+
+    document.getElementById('modal_correo').value = correo;
+    document.getElementById('modal_cargo').value = cargo;
+
+    const rolAdministrador = document.getElementById('rol_administrador');
+    const rolSubadministrador = document.getElementById('rol_subadministrador');
+    const rolUsuarioRadio = document.getElementById('rol_usuario'); // Renombrado para evitar conflicto con la variable 'rol'
+
+    if (rol === 'administrador' && rolAdministrador) {
+        rolAdministrador.checked = true;
+    } else if (rol === 'subadministrador' && rolSubadministrador) {
+        rolSubadministrador.checked = true;
+    } else if (rolUsuarioRadio) {
+        rolUsuarioRadio.checked = true;
+    } else {
+        if(rolAdministrador) rolAdministrador.checked = false;
+        if(rolSubadministrador) rolSubadministrador.checked = false;
+        if(rolUsuarioRadio) rolUsuarioRadio.checked = true;
+    }
+}
 </script>
 
 <?php require_once __DIR__ . '/../templates/pie_admin.php'; ?>

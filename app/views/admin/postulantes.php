@@ -1,8 +1,14 @@
-<?php include '../secciones/postulantes.php'; ?>
-<?php include '../templades/cabecera.php'; ?>
+<?php
+// Vista cargada por AdminController@listPostulantes
+// Variables disponibles: $postulantes, $titulo
+require_once __DIR__ . '/../templates/cabecera_admin.php';
+?>
 
-<div class="row g-4">
-  <!-- Panel lateral de acciones -->
+<div class="container mt-4"> <!-- Añadido container para mejor espaciado -->
+    <h2><?= htmlspecialchars($titulo ?? 'Gestión de Postulantes') ?></h2>
+
+    <div class="row g-4 mt-3">
+        <!-- Panel lateral de acciones -->
   <div class="col-md-4">
     <div class="card shadow-sm border-0">
       <div class="card-header bg-orange text-white fw-bold text-center">
@@ -15,8 +21,9 @@
         <button id="btnEditar" class="btn btn-warning w-100 mb-2" disabled>
           <i class="bi bi-pencil-fill me-1"></i> Editar
         </button>
-        <button id="btnEliminar" class="btn btn-danger w-100" disabled>
-          <i class="bi bi-trash-fill me-1"></i> Eliminar
+        <!-- El botón de eliminar ahora podría ser un submit de un form oculto o manejado por JS para una ruta específica -->
+        <button id="btnEliminarPostulante" class="btn btn-danger w-100" disabled>
+            <i class="bi bi-trash-fill me-1"></i> Eliminar
         </button>
       </div>
     </div>
@@ -26,7 +33,8 @@
 <div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="modalAgregarLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-scrollable">
     <div class="modal-content">
-      <form method="post" action="postulantes.php">
+      <!-- TODO: Cambiar action a la ruta POST para crear/actualizar postulante, ej. /admin/postulantes/store -->
+      <form method="post" action="#">
         <div class="modal-header bg-success text-white">
           <h5 class="modal-title" id="modalAgregarLabel"><i class="bi bi-person-plus-fill me-2"></i>Registrar Postulante</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
@@ -871,7 +879,8 @@
                         <p class="mb-3"><i class="bi bi-calendar-check me-1 text-muted"></i><strong>Registrado:</strong> <?= $postulante['fecha_registro'] ?></p>
 
                         <!-- Botón PDF -->
-                        <a href="generar_pdf.php?id=<?= $postulante['idpostulante'] ?>" target="_blank" class="btn btn-outline-danger btn-sm w-100 mt-2">
+                        <!-- TODO: Cambiar href a una ruta MVC para generar PDF, ej. /admin/postulantes/pdf/<?= $postulante['idpostulante'] ?> -->
+                        <a href="#" target="_blank" class="btn btn-outline-danger btn-sm w-100 mt-2">
                           <i class="bi bi-file-earmark-pdf-fill me-1"></i> Descargar PDF
                         </a>
                       </div>
@@ -898,7 +907,7 @@
 <script>
   const cards = document.querySelectorAll('.card-selectable');
   const btnEditar = document.getElementById('btnEditar');
-  const btnEliminar = document.getElementById('btnEliminar');
+  const btnEliminarPostulante = document.getElementById('btnEliminarPostulante'); // ID cambiado
 
   let selectedCard = null;
 
@@ -913,7 +922,7 @@
 
       // Activar botones
       btnEditar.disabled = false;
-      btnEliminar.disabled = false;
+      btnEliminarPostulante.disabled = false;
     });
   });
 
@@ -928,7 +937,7 @@
     }
   });
 
-  btnEliminar.addEventListener('click', () => {
+  btnEliminarPostulante.addEventListener('click', () => { // ID cambiado
     if (selectedCard) {
       const id = selectedCard.dataset.id;
 
@@ -944,9 +953,10 @@
         if (result.isConfirmed) {
           const form = document.createElement('form');
           form.method = 'post';
+          // TODO: Cambiar action a la ruta de eliminar postulante, ej. /admin/postulantes/delete
+          form.action = '#';
           form.innerHTML = `
-            <input type="hidden" name="accion" value="eliminar">
-            <input type="hidden" name="id" value="${id}">
+            <input type="hidden" name="idpostulante" value="${id}">
           `;
           document.body.appendChild(form);
           form.submit();
@@ -1471,4 +1481,4 @@
 
   </div>
 
-<?php include '../templades/pie.php'; ?>
+<?php require_once __DIR__ . '/../templates/pie_admin.php'; ?>

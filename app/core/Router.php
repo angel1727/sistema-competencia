@@ -16,14 +16,22 @@ class Router {
 
         // Rutas del panel de Administración
         $this->addRoute('admin/dashboard', 'AdminController@dashboard', 'GET');
-        $this->addRoute('admin/usuarios', 'AdminController@listUsuarios', 'GET'); // Ruta para listar usuarios
 
-        // Próximamente para CRUD de usuarios:
-        // $this->addRoute('admin/usuarios/crear', 'AdminController@showCrearUsuarioForm', 'GET'); // Formulario de creación
-        // $this->addRoute('admin/usuarios/store', 'AdminController@storeUsuario', 'POST');    // Procesar creación
-        // $this->addRoute('admin/usuarios/editar/{id}', 'AdminController@showEditUsuarioForm', 'GET'); // Formulario de edición
-        // $this->addRoute('admin/usuarios/update/{id}', 'AdminController@updateUsuario', 'POST'); // Procesar actualización
-        // $this->addRoute('admin/usuarios/delete/{id}', 'AdminController@deleteUsuario', 'POST'); // Procesar eliminación (o GET si es un enlace simple)
+        // Usuarios
+        $this->addRoute('admin/usuarios', 'AdminController@listUsuarios', 'GET');
+        // Como el formulario de crear/editar es un modal en la misma página de listUsuarios,
+        // no necesitamos rutas GET separadas para mostrar los formularios.
+        // Solo necesitamos las rutas POST para procesar los datos.
+        $this->addRoute('admin/usuarios/store', 'AdminController@storeUsuario', 'POST');    // Procesar creación
+        $this->addRoute('admin/usuarios/update', 'AdminController@updateUsuario', 'POST'); // Procesar actualización (ID vendrá en POST)
+        $this->addRoute('admin/usuarios/delete', 'AdminController@deleteUsuario', 'POST'); // Procesar eliminación (ID vendrá en POST)
+
+        // Postulantes (Placeholder)
+        $this->addRoute('admin/postulantes', 'AdminController@listPostulantes', 'GET');
+        // Evaluadores (Placeholder)
+        $this->addRoute('admin/evaluadores', 'AdminController@listEvaluadores', 'GET');
+        // Expertos (Placeholder)
+        $this->addRoute('admin/expertos', 'AdminController@listExpertos', 'GET');
     }
 
     /**

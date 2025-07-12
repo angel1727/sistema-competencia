@@ -74,37 +74,39 @@
     
 <!-- Sidebar lateral -->
 <div class="sidebar">
-    <a class="navbar-brand d-flex align-items-center mb-4" href="#">
+    <a class="navbar-brand d-flex align-items-center mb-4" href="/admin/dashboard">
         <i class="bi bi-person-circle fs-4 me-2"></i>
         <span class="fw-bold">Panel Admin</span>
     </a>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link active" href="vista_usuario.php"><i class="bi bi-people-fill me-2"></i> Usuario</a>
+            <a class="nav-link active" href="/admin/usuarios"><i class="bi bi-people-fill me-2"></i> Usuario</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="vista_postulantes.php"><i class="bi bi-person-lines-fill me-2"></i> Postulantes</a>
+            <a class="nav-link" href="/admin/postulantes"><i class="bi bi-person-lines-fill me-2"></i> Postulantes</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="vista_evaluador.php"><i class="bi bi-person-badge-fill me-2"></i> Líder Evaluador</a>
+            <a class="nav-link" href="/admin/evaluadores"><i class="bi bi-person-badge-fill me-2"></i> Líder Evaluador</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="vista_experto.php"><i class="bi bi-tools me-2"></i> Experto Técnico</a>
+            <a class="nav-link" href="/admin/expertos"><i class="bi bi-tools me-2"></i> Experto Técnico</a>
         </li>
         <li class="nav-item mt-auto">
-            <a class="nav-link text-warning" href="../index.php"><i class="bi bi-box-arrow-right me-2"></i> Cerrar Sesión</a>
+            <a class="nav-link text-warning" href="/logout"><i class="bi bi-box-arrow-right me-2"></i> Cerrar Sesión</a>
         </li>
     </ul>
 
     <div class="text-center p-3">
-    <img src="../img/acreditacion.png" alt="IBMETRO" class="img-fluid ibmetro-logo">
+    <img src="/img/acreditacion.png" alt="IBMETRO" class="img-fluid ibmetro-logo"> <!-- Ruta corregida -->
     </div>
 </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row">
+    <!-- El main-content ahora debe estar fuera del sidebar y envolver el contenido de cada vista -->
+    <div class="main-content">
+        <div class="container-fluid"> <!-- Usar container-fluid para que ocupe el ancho disponible -->
+            <!-- El contenido específico de cada página (ej. la tabla de usuarios) se cargará aquí -->
+            <!-- No más <div class="container"> <div class="row"> <div class="col-md-12"> <div class="row"> aquí -->
+            <!-- Esas estructuras deben estar en las vistas individuales como usuarios.php -->
 
         
 

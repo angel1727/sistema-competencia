@@ -95,11 +95,10 @@
 
           <form id="loginForm" action="/login" method="post"> <!-- Acción apunta a la ruta /login (POST) -->
             <div class="mb-3 text-start">
-              <label for="username" class="form-label">
+              <label for="usuario" class="form-label">
                 <i class="bi bi-person-fill"></i> Usuario
               </label>
-              <!-- El nombre del input es 'username', no 'usuario' como en el AuthController temporal -->
-              <input type="text" class="form-control" id="username" name="username" required />
+              <input type="text" class="form-control" id="usuario" name="usuario" required />
             </div>
             <div class="mb-3 text-start">
               <label for="password" class="form-label">

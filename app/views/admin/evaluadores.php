@@ -1,7 +1,13 @@
-<?php include '../templades/cabecera.php'; ?>
+<?php
+// Vista cargada por AdminController@listEvaluadores
+// Variables disponibles: $evaluadores, $titulo
+require_once __DIR__ . '/../templates/cabecera_admin.php';
+?>
 
 <div class="container my-5">
-  <!-- Sección de Dashboard -->
+    <h2><?= htmlspecialchars($titulo ?? 'Gestión de Líderes Evaluadores') ?></h2>
+
+    <!-- Sección de Dashboard -->
   <div class="row mb-4">
     <!-- Tarjeta de Resumen -->
     <div class="col-md-4 mb-3">
@@ -12,7 +18,7 @@
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h5 class="card-title mb-0">Total Evaluadores</h5>
-            <span class="badge bg-primary rounded-pill fs-5" id="totalEvaluadores">4</span>
+            <span class="badge bg-primary rounded-pill fs-5" id="totalEvaluadores"><?= count($evaluadores ?? []) ?></span>
           </div>
           <div class="progress mb-3" style="height: 10px;">
             <div class="progress-bar bg-success" role="progressbar" style="width: 25%"></div>
@@ -58,7 +64,7 @@
         </div>
         <div class="card-body p-0">
           <div id="mapaEvaluadores" style="height: 100%; min-height: 250px; background-color: #e9ecef; display: flex; align-items: center; justify-content: center;">
-            <p class="text-muted">Cargando mapa...</p>
+            <p class="text-muted"><?= empty($evaluadores) ? "No hay datos para mostrar en el mapa." : "Cargando mapa..." ?></p>
           </div>
         </div>
       </div>
@@ -71,7 +77,11 @@
           <i class="bi bi-bar-chart-fill me-2"></i>Distribución por Norma
         </div>
         <div class="card-body">
-          <canvas id="graficoExperticias" height="220"></canvas>
+          <?php if (!empty($evaluadores)): ?>
+            <canvas id="graficoExperticias" height="220"></canvas>
+          <?php else: ?>
+            <p class="text-center text-muted">No hay datos para el gráfico.</p>
+          <?php endif; ?>
         </div>
       </div>
     </div>
@@ -114,66 +124,32 @@
             </tr>
           </thead>
           <tbody id="tablaExpertos">
-            <tr data-iso="17025E" data-ciudad="Bogotá" data-pais="Colombia" data-lat="4.710989" data-lng="-74.072092">
-              <td>María Rodríguez</td>
-              <td>Laboratorio de Ensayo</td>
-              <td>ISO/IEC 17025</td>
-              <td>ICONTEC</td>
-              <td>mrodriguez@email.com</td>
-              <td class="text-center">
-                <a href="descargar.php?tipo=pdf&id=1" class="btn btn-sm btn-danger me-1">
-                  <i class="bi bi-file-earmark-pdf-fill"></i> PDF
-                </a>
-                <a href="descargar.php?tipo=word&id=1" class="btn btn-sm btn-primary">
-                  <i class="bi bi-file-earmark-word-fill"></i> Word
-                </a>
-              </td>
-            </tr>
-            <tr data-iso="17024" data-ciudad="Medellín" data-pais="Colombia" data-lat="6.244203" data-lng="-75.581211">
-              <td>Carlos Gómez</td>
-              <td>Certificación de Personas</td>
-              <td>ISO/IEC 17024</td>
-              <td>ONAC</td>
-              <td>cgomez@email.com</td>
-              <td class="text-center">
-                <a href="descargar.php?tipo=pdf&id=2" class="btn btn-sm btn-danger me-1">
-                  <i class="bi bi-file-earmark-pdf-fill"></i> PDF
-                </a>
-                <a href="descargar.php?tipo=word&id=2" class="btn btn-sm btn-primary">
-                  <i class="bi bi-file-earmark-word-fill"></i> Word
-                </a>
-              </td>
-            </tr>
-            <tr data-iso="17020" data-ciudad="Cali" data-pais="Colombia" data-lat="3.451647" data-lng="-76.531982">
-              <td>Ana Torres</td>
-              <td>Organismo de Inspección</td>
-              <td>ISO/IEC 17020</td>
-              <td>SGS Colombia</td>
-              <td>atorres@email.com</td>
-              <td class="text-center">
-                <a href="descargar.php?tipo=pdf&id=3" class="btn btn-sm btn-danger me-1">
-                  <i class="bi bi-file-earmark-pdf-fill"></i> PDF
-                </a>
-                <a href="descargar.php?tipo=word&id=3" class="btn btn-sm btn-primary">
-                  <i class="bi bi-file-earmark-word-fill"></i> Word
-                </a>
-              </td>
-            </tr>
-            <tr data-iso="17065" data-ciudad="Barranquilla" data-pais="Colombia" data-lat="10.963889" data-lng="-74.796387">
-              <td>Jorge Díaz</td>
-              <td>Certificación de Productos</td>
-              <td>ISO/IEC 17065</td>
-              <td>Bureau Veritas</td>
-              <td>jdiaz@email.com</td>
-              <td class="text-center">
-                <a href="descargar.php?tipo=pdf&id=4" class="btn btn-sm btn-danger me-1">
-                  <i class="bi bi-file-earmark-pdf-fill"></i> PDF
-                </a>
-                <a href="descargar.php?tipo=word&id=4" class="btn btn-sm btn-primary">
-                  <i class="bi bi-file-earmark-word-fill"></i> Word
-                </a>
-              </td>
-            </tr>
+            <?php if (!empty($evaluadores)): ?>
+                <?php foreach ($evaluadores as $evaluador): ?>
+                <tr data-iso="<?= htmlspecialchars($evaluador['data_iso'] ?? '') ?>"
+                    data-ciudad="<?= htmlspecialchars($evaluador['data_ciudad'] ?? '') ?>"
+                    data-pais="<?= htmlspecialchars($evaluador['data_pais'] ?? '') ?>"
+                    data-lat="<?= htmlspecialchars($evaluador['data_lat'] ?? '') ?>"
+                    data-lng="<?= htmlspecialchars($evaluador['data_lng'] ?? '') ?>">
+                <td><?= htmlspecialchars($evaluador['nombre'] ?? 'N/A') ?></td>
+                <td><?= htmlspecialchars($evaluador['especialidad'] ?? 'N/A') ?></td>
+                <td><?= htmlspecialchars($evaluador['norma'] ?? 'N/A') ?></td>
+                <td><?= htmlspecialchars($evaluador['organismo'] ?? 'N/A') ?></td>
+                <td><?= htmlspecialchars($evaluador['correo'] ?? 'N/A') ?></td>
+                <td class="text-center">
+                    <!-- TODO: Cambiar href a rutas MVC para descargar PDF/Word -->
+                    <a href="#" class="btn btn-sm btn-danger me-1" title="Descargar PDF">
+                    <i class="bi bi-file-earmark-pdf-fill"></i> PDF
+                    </a>
+                    <a href="#" class="btn btn-sm btn-primary" title="Descargar Word">
+                    <i class="bi bi-file-earmark-word-fill"></i> Word
+                    </a>
+                </td>
+                </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr><td colspan="6" class="text-center">No hay evaluadores para mostrar.</td></tr>
+            <?php endif; ?>
           </tbody>
         </table>
       </div>
@@ -183,17 +159,27 @@
 
 <!-- Scripts para el dashboard interactivo -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- TODO: Reemplazar TU_API_KEY con tu clave de API de Google Maps -->
 <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
 <script>
-  // Inicializar gráfico de experticias
+  // Datos para el gráfico (se podrían pasar desde el controlador también)
+  const evaluadoresData = <?= json_encode($evaluadores ?? []) ?>;
+
   document.addEventListener('DOMContentLoaded', function() {
-    const ctx = document.getElementById('graficoExperticias').getContext('2d');
-    const chart = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ['ISO/IEC 17025', 'ISO/IEC 17024', 'ISO/IEC 17020', 'ISO/IEC 17065'],
-        datasets: [{
-          data: [1, 1, 1, 1],
+    // Inicializar gráfico de experticias
+    const normas = {};
+    evaluadoresData.forEach(e => {
+        if(e.norma) normas[e.norma] = (normas[e.norma] || 0) + 1;
+    });
+
+    const ctx = document.getElementById('graficoExperticias');
+    if (ctx && evaluadoresData.length > 0) {
+        new Chart(ctx.getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(normas),
+            datasets: [{
+            data: Object.values(normas),
           backgroundColor: [
             '#28a745', // verde
             '#17a2b8', // azul claro
@@ -211,46 +197,74 @@
           }
         }
       }
-    });
-  });
+        });
+    }
 
-  // Inicializar mapa
-  function initMap() {
-    const colombia = { lat: 4.5709, lng: -74.2973 };
-    const map = new google.maps.Map(document.getElementById('mapaEvaluadores'), {
+    // Filtro de normas (se mantiene, pero ahora opera sobre los datos cargados dinámicamente)
+    const filtroIsoSelect = document.getElementById('filtroIso');
+    if (filtroIsoSelect) {
+        filtroIsoSelect.addEventListener('change', function() {
+            const selectedValues = Array.from(this.selectedOptions).map(option => option.value);
+            const rows = document.querySelectorAll('#tablaExpertos tr');
+            let visibleRows = 0;
+
+            rows.forEach(row => {
+            if (selectedValues.length === 0 || selectedValues.includes(row.dataset.iso)) {
+                row.style.display = '';
+                visibleRows++;
+            } else {
+                row.style.display = 'none';
+            }
+            });
+
+            const totalEvaluadoresSpan = document.getElementById('totalEvaluadores');
+            if (totalEvaluadoresSpan) {
+                totalEvaluadoresSpan.textContent = visibleRows;
+            }
+        });
+    }
+});
+
+// Inicializar mapa
+function initMap() {
+    const mapaDiv = document.getElementById('mapaEvaluadores');
+    if (!mapaDiv || typeof google === 'undefined' || typeof google.maps === 'undefined') {
+        if(mapaDiv) mapaDiv.innerHTML = '<p class="text-muted text-center">No se pudo cargar Google Maps. Verifica la API Key.</p>';
+        console.error("Google Maps API no cargada.");
+        return;
+    }
+
+    const colombia = { lat: 4.5709, lng: -74.2973 }; // Centro por defecto
+    const map = new google.maps.Map(mapaDiv, {
       zoom: 5,
       center: colombia
     });
 
-    // Agregar marcadores para cada evaluador
-    document.querySelectorAll('#tablaExpertos tr').forEach(row => {
-      if (row.dataset.lat && row.dataset.lng) {
-        const marker = new google.maps.Marker({
-          position: { lat: parseFloat(row.dataset.lat), lng: parseFloat(row.dataset.lng) },
-          map: map,
-          title: row.cells[0].textContent + ' - ' + row.cells[2].textContent
-        });
-      }
-    });
-  }
+    let bounds = new google.maps.LatLngBounds();
+    let markersExist = false;
 
-  // Filtro de normas
-  document.getElementById('filtroIso').addEventListener('change', function() {
-    const selectedValues = Array.from(this.selectedOptions).map(option => option.value);
-    const rows = document.querySelectorAll('#tablaExpertos tr');
-    
-    rows.forEach(row => {
-      if (selectedValues.length === 0 || selectedValues.includes(row.dataset.iso)) {
-        row.style.display = '';
-      } else {
-        row.style.display = 'none';
+    evaluadoresData.forEach(evaluador => {
+      if (evaluador.data_lat && evaluador.data_lng) {
+        const lat = parseFloat(evaluador.data_lat);
+        const lng = parseFloat(evaluador.data_lng);
+        if (!isNaN(lat) && !isNaN(lng)) {
+            const marker = new google.maps.Marker({
+            position: { lat: lat, lng: lng },
+            map: map,
+            title: (evaluador.nombre || 'Evaluador') + ' - ' + (evaluador.norma || 'N/A')
+            });
+            bounds.extend(marker.getPosition());
+            markersExist = true;
+        }
       }
     });
-    
-    // Actualizar contador
-    document.getElementById('totalEvaluadores').textContent = 
-      document.querySelectorAll('#tablaExpertos tr[style=""]').length;
-  });
+
+    if (markersExist) {
+        map.fitBounds(bounds);
+    } else if (mapaDiv.querySelector('p.text-muted')) { // Si no hay marcadores y el mensaje de "cargando" está.
+         mapaDiv.querySelector('p.text-muted').textContent = 'No hay datos de ubicación para mostrar.';
+    }
+  }
 </script>
 
-<?php include '../templades/pie.php'; ?>
+<?php require_once __DIR__ . '/../templates/pie_admin.php'; ?>

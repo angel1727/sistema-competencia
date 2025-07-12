@@ -1,7 +1,13 @@
-<?php include '../templades/cabecera.php'; ?>
+<?php
+// Vista cargada por AdminController@listExpertos
+// Variables disponibles: $expertos, $titulo
+require_once __DIR__ . '/../templates/cabecera_admin.php';
+?>
 
 <div class="container my-5">
-  <div class="card shadow-sm border-0">
+    <h2><?= htmlspecialchars($titulo ?? 'Gestión de Expertos Técnicos') ?></h2>
+
+    <div class="card shadow-sm border-0 mt-4">
     <div class="card-header bg-primary text-white text-center fw-bold">
       Panel de Búsqueda - Expertos Técnicos
     </div>
@@ -38,67 +44,28 @@
             </tr>
           </thead>
           <tbody id="tablaExpertos">
-            <tr data-iso="17025E">
-              <td>María Rodríguez</td>
-              <td>Laboratorio de Ensayo</td>
-              <td>ISO/IEC 17025</td>
-              <td>ICONTEC</td>
-              <td>mrodriguez@email.com</td>
-              <td class="text-center">
-                <a href="descargar.php?tipo=pdf&id=1" class="btn btn-sm btn-danger me-1">
-                  <i class="bi bi-file-earmark-pdf-fill"></i> PDF
-                </a>
-                <a href="descargar.php?tipo=word&id=1" class="btn btn-sm btn-primary">
-                  <i class="bi bi-file-earmark-word-fill"></i> Word
-                </a>
-              </td>
-            </tr>
-            <tr data-iso="17024">
-              <td>Carlos Gómez</td>
-              <td>Certificación de Personas</td>
-              <td>ISO/IEC 17024</td>
-              <td>ONAC</td>
-              <td>cgomez@email.com</td>
-              <td class="text-center">
-                <a href="descargar.php?tipo=pdf&id=2" class="btn btn-sm btn-danger me-1">
-                  <i class="bi bi-file-earmark-pdf-fill"></i> PDF
-                </a>
-                <a href="descargar.php?tipo=word&id=2" class="btn btn-sm btn-primary">
-                  <i class="bi bi-file-earmark-word-fill"></i> Word
-                </a>
-              </td>
-            </tr>
-            <tr data-iso="17020">
-              <td>Ana Torres</td>
-              <td>Organismo de Inspección</td>
-              <td>ISO/IEC 17020</td>
-              <td>SGS Colombia</td>
-              <td>atorres@email.com</td>
-              <td class="text-center">
-                <a href="descargar.php?tipo=pdf&id=3" class="btn btn-sm btn-danger me-1">
-                  <i class="bi bi-file-earmark-pdf-fill"></i> PDF
-                </a>
-                <a href="descargar.php?tipo=word&id=3" class="btn btn-sm btn-primary">
-                  <i class="bi bi-file-earmark-word-fill"></i> Word
-                </a>
-              </td>
-            </tr>
-            <tr data-iso="17065">
-              <td>Jorge Díaz</td>
-              <td>Certificación de Productos</td>
-              <td>ISO/IEC 17065</td>
-              <td>Bureau Veritas</td>
-              <td>jdiaz@email.com</td>
-              <td class="text-center">
-                <a href="descargar.php?tipo=pdf&id=4" class="btn btn-sm btn-danger me-1">
-                  <i class="bi bi-file-earmark-pdf-fill"></i> PDF
-                </a>
-                <a href="descargar.php?tipo=word&id=4" class="btn btn-sm btn-primary">
-                  <i class="bi bi-file-earmark-word-fill"></i> Word
-                </a>
-              </td>
-            </tr>
-            <!-- Más registros aquí -->
+            <?php if (!empty($expertos)): ?>
+                <?php foreach ($expertos as $experto): ?>
+                <tr data-iso="<?= htmlspecialchars($experto['data_iso'] ?? '') ?>">
+                    <td><?= htmlspecialchars($experto['nombre'] ?? 'N/A') ?></td>
+                    <td><?= htmlspecialchars($experto['especialidad'] ?? 'N/A') ?></td>
+                    <td><?= htmlspecialchars($experto['norma'] ?? 'N/A') ?></td>
+                    <td><?= htmlspecialchars($experto['organismo'] ?? 'N/A') ?></td>
+                    <td><?= htmlspecialchars($experto['correo'] ?? 'N/A') ?></td>
+                    <td class="text-center">
+                        <!-- TODO: Cambiar href a rutas MVC para descargar PDF/Word -->
+                        <a href="#" class="btn btn-sm btn-danger me-1" title="Descargar PDF">
+                        <i class="bi bi-file-earmark-pdf-fill"></i> PDF
+                        </a>
+                        <a href="#" class="btn btn-sm btn-primary" title="Descargar Word">
+                        <i class="bi bi-file-earmark-word-fill"></i> Word
+                        </a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr><td colspan="6" class="text-center">No hay expertos para mostrar.</td></tr>
+            <?php endif; ?>
           </tbody>
         </table>
       </div>
@@ -108,4 +75,25 @@
 
 
 
-<?php include '../templades/pie.php'; ?>
+<script>
+// Script de filtro (se mantiene, pero ahora opera sobre los datos cargados dinámicamente)
+document.addEventListener('DOMContentLoaded', function() {
+    const filtroIsoSelect = document.getElementById('filtroIso');
+    if (filtroIsoSelect) {
+        filtroIsoSelect.addEventListener('change', function() {
+            const selectedValues = Array.from(this.selectedOptions).map(option => option.value);
+            const rows = document.querySelectorAll('#tablaExpertos tr');
+
+            rows.forEach(row => {
+            if (selectedValues.length === 0 || selectedValues.includes(row.dataset.iso)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+            });
+        });
+    }
+});
+</script>
+
+<?php require_once __DIR__ . '/../templates/pie_admin.php'; ?>
