@@ -16,6 +16,8 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <style>
         .bg-orange {
@@ -65,12 +67,113 @@
         cursor: pointer;
         }
 
+    .bg-orange {
+        background-color: #f3a100 !important;
+    }
+    
+    /* Sidebar fijo */
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+        background-color: #f3a100;
+        padding-top: 1rem;
+        color: white;
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
 
-        </style>
+    .sidebar .nav-link {
+        color: white;
+        padding: 0.75rem 1rem;
+    }
+
+    .sidebar .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: black !important;
+    }
+
+    .sidebar .navbar-brand {
+        font-weight: bold;
+        padding: 0 1rem;
+        color: white;
+    }
+
+    /* Contenido desplazado a la derecha */
+    .main-content {
+        margin-left: 250px;
+        padding: 1rem;
+        transition: margin-left 0.3s ease;
+    }
+
+    .ibmetro-logo {
+        max-width: 200px;
+        margin: 350px 0 auto;
+        border: 2px solid white;
+    }
+
+    .card-selectable:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+        cursor: pointer;
+    }
+
+    /* Botón de menú hamburguesa */
+    .menu-toggle {
+        display: none;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+        background: #f3a100;
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    /* Media queries para responsividad */
+    @media (max-width: 992px) {
+        .sidebar {
+            transform: translateX(-100%);
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .main-content {
+            margin-left: 0;
+        }
+
+        .menu-toggle {
+            display: block;
+        }
+
+        .ibmetro-logo {
+            margin: 50px 0 auto;
+        }
+    }
+    #mapaEvaluadores {
+    height: 100%;
+    min-height: 250px;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+/* Para Leaflet */
+.leaflet-container {
+    background: #e9ecef;
+}
+</style>
+
     </head>
 
     <body>
-
+    <button class="menu-toggle" id="menuToggle">
+    <i class="bi bi-list"></i>
+</button>
     
 <!-- Sidebar lateral -->
 <div class="sidebar">

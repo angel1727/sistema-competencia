@@ -24,6 +24,11 @@
             crossorigin="anonymous"
         ></script>
 
+        <script>
+            document.getElementById('menuToggle').addEventListener('click', function() {
+                document.querySelector('.sidebar').classList.toggle('active');
+            });
+        </script>
         
         <script>
             document.getElementById('normas').addEventListener('change', function () {

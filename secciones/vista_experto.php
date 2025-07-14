@@ -1,12 +1,88 @@
 <?php include '../templades/cabecera.php'; ?>
 
 <div class="container my-5">
+  <!-- Sección de Dashboard -->
+  <div class="row mb-4">
+    <!-- Tarjeta de Resumen -->
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+          <i class="bi bi-people-fill me-2"></i>Resumen de Tecnicos Expertos
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="card-title mb-0">Total Expertos</h5>
+            <span class="badge bg-primary rounded-pill fs-5" id="totalEvaluadores">4</span>
+          </div>
+          <div class="progress mb-3" style="height: 10px;">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 25%"></div>
+            <div class="progress-bar bg-info" role="progressbar" style="width: 25%"></div>
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div>
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%"></div>
+          </div>
+          <div class="row">
+            <div class="col-6 mb-2">
+              <div class="d-flex align-items-center">
+                <span class="badge bg-success me-2">&nbsp;</span>
+                <small>17025</small>
+              </div>
+            </div>
+            <div class="col-6 mb-2">
+              <div class="d-flex align-items-center">
+                <span class="badge bg-info me-2">&nbsp;</span>
+                <small>17024</small>
+              </div>
+            </div>
+            <div class="col-6 mb-2">
+              <div class="d-flex align-items-center">
+                <span class="badge bg-warning me-2">&nbsp;</span>
+                <small>17020</small>
+              </div>
+            </div>
+            <div class="col-6 mb-2">
+              <div class="d-flex align-items-center">
+                <span class="badge bg-danger me-2">&nbsp;</span>
+                <small>17065</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mapa de Ubicación -->
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+          <i class="bi bi-geo-alt-fill me-2"></i>Ubicación de Expertos
+        </div>
+        <div class="card-body p-0">
+          <div id="mapaEvaluadores" style="height: 100%; min-height: 250px; background-color: #e9ecef; display: flex; align-items: center; justify-content: center;">
+            <p class="text-muted">Cargando mapa...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gráfico de Experticias -->
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+          <i class="bi bi-bar-chart-fill me-2"></i>Distribución por Norma
+        </div>
+        <div class="card-body">
+          <canvas id="graficoExperticias" height="220"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel de Búsqueda -->
   <div class="card shadow-sm border-0">
     <div class="card-header bg-primary text-white text-center fw-bold">
-      Panel de Búsqueda - Expertos Técnicos
+      Panel de Búsqueda - Tecnicos Expertos
     </div>
     <div class="card-body">
-
       <!-- Buscador de normas múltiples -->
       <div class="mb-4">
         <label for="filtroIso" class="form-label fw-semibold">Filtrar por norma ISO:</label>
@@ -34,71 +110,70 @@
               <th>Norma</th>
               <th>Organismo</th>
               <th>Correo</th>
-              <th>Acciones</th>
+              <!-- <th>Acciones</th> -->
             </tr>
           </thead>
           <tbody id="tablaExpertos">
-            <tr data-iso="17025E">
+            <tr data-iso="17025E" data-ciudad="Bogotá" data-pais="Colombia" data-lat="4.710989" data-lng="-74.072092">
               <td>María Rodríguez</td>
               <td>Laboratorio de Ensayo</td>
               <td>ISO/IEC 17025</td>
               <td>ICONTEC</td>
               <td>mrodriguez@email.com</td>
-              <td class="text-center">
+              <!-- <td class="text-center">
                 <a href="descargar.php?tipo=pdf&id=1" class="btn btn-sm btn-danger me-1">
                   <i class="bi bi-file-earmark-pdf-fill"></i> PDF
                 </a>
                 <a href="descargar.php?tipo=word&id=1" class="btn btn-sm btn-primary">
                   <i class="bi bi-file-earmark-word-fill"></i> Word
                 </a>
-              </td>
+              </td> -->
             </tr>
-            <tr data-iso="17024">
+            <tr data-iso="17024" data-ciudad="Medellín" data-pais="Colombia" data-lat="6.244203" data-lng="-75.581211">
               <td>Carlos Gómez</td>
               <td>Certificación de Personas</td>
               <td>ISO/IEC 17024</td>
               <td>ONAC</td>
               <td>cgomez@email.com</td>
-              <td class="text-center">
+              <!-- <td class="text-center">
                 <a href="descargar.php?tipo=pdf&id=2" class="btn btn-sm btn-danger me-1">
                   <i class="bi bi-file-earmark-pdf-fill"></i> PDF
                 </a>
                 <a href="descargar.php?tipo=word&id=2" class="btn btn-sm btn-primary">
                   <i class="bi bi-file-earmark-word-fill"></i> Word
                 </a>
-              </td>
+              </td> -->
             </tr>
-            <tr data-iso="17020">
+            <tr data-iso="17020" data-ciudad="Cali" data-pais="Colombia" data-lat="3.451647" data-lng="-76.531982">
               <td>Ana Torres</td>
               <td>Organismo de Inspección</td>
               <td>ISO/IEC 17020</td>
               <td>SGS Colombia</td>
               <td>atorres@email.com</td>
-              <td class="text-center">
+              <!-- <td class="text-center">
                 <a href="descargar.php?tipo=pdf&id=3" class="btn btn-sm btn-danger me-1">
                   <i class="bi bi-file-earmark-pdf-fill"></i> PDF
                 </a>
                 <a href="descargar.php?tipo=word&id=3" class="btn btn-sm btn-primary">
                   <i class="bi bi-file-earmark-word-fill"></i> Word
                 </a>
-              </td>
+              </td> -->
             </tr>
-            <tr data-iso="17065">
+            <tr data-iso="17065" data-ciudad="Barranquilla" data-pais="Colombia" data-lat="10.963889" data-lng="-74.796387">
               <td>Jorge Díaz</td>
               <td>Certificación de Productos</td>
               <td>ISO/IEC 17065</td>
               <td>Bureau Veritas</td>
               <td>jdiaz@email.com</td>
-              <td class="text-center">
+              <!-- <td class="text-center">
                 <a href="descargar.php?tipo=pdf&id=4" class="btn btn-sm btn-danger me-1">
                   <i class="bi bi-file-earmark-pdf-fill"></i> PDF
                 </a>
                 <a href="descargar.php?tipo=word&id=4" class="btn btn-sm btn-primary">
                   <i class="bi bi-file-earmark-word-fill"></i> Word
                 </a>
-              </td>
+              </td> -->
             </tr>
-            <!-- Más registros aquí -->
           </tbody>
         </table>
       </div>
@@ -106,6 +181,104 @@
   </div>
 </div>
 
+<!-- Scripts para el dashboard interactivo -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
+<script>
+  // Inicializar gráfico de experticias
+  document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('graficoExperticias').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['ISO/IEC 17025', 'ISO/IEC 17024', 'ISO/IEC 17020', 'ISO/IEC 17065'],
+        datasets: [{
+          data: [1, 1, 1, 1],
+          backgroundColor: [
+            '#28a745', // verde
+            '#17a2b8', // azul claro
+            '#ffc107', // amarillo
+            '#dc3545'  // rojo
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+          }
+        }
+      }
+    });
+  });
 
+// Inicializar mapa con Leaflet
+document.addEventListener('DOMContentLoaded', function() {
+    const map = L.map('mapaEvaluadores').setView([-14.52, -64.65], 5);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    // Icono personalizado
+    const redIcon = L.icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34]
+    });
+    
+    document.querySelectorAll('#tablaExpertos tr').forEach(row => {
+        if (row.dataset.lat && row.dataset.lng) {
+            const marker = L.marker(
+                [parseFloat(row.dataset.lat), parseFloat(row.dataset.lng)], 
+                {icon: redIcon}
+            ).addTo(map);
+            
+            marker.bindPopup(`
+                <b>${row.cells[0].textContent}</b><br>
+                ${row.dataset.ciudad}, ${row.dataset.pais}<br>
+                <small>Norma: ${row.cells[2].textContent}</small>
+            `);
+        }
+    });
+});
+
+document.getElementById('filtroIso').addEventListener('change', function() {
+    const selectedValues = Array.from(this.selectedOptions).map(option => option.value);
+    const rows = document.querySelectorAll('#tablaExpertos tr');
+    
+    rows.forEach(row => {
+        const shouldShow = selectedValues.length === 0 || selectedValues.includes(row.dataset.iso);
+        row.style.display = shouldShow ? '' : 'none';
+        
+        // Para Google Maps: marker.setVisible(shouldShow);
+        // Para Leaflet: shouldShow ? marker.addTo(map) : map.removeLayer(marker);
+    });
+    
+    document.getElementById('totalEvaluadores').textContent = 
+        document.querySelectorAll('#tablaExpertos tr[style=""]').length;
+});
+
+  // Filtro de normas
+  document.getElementById('filtroIso').addEventListener('change', function() {
+    const selectedValues = Array.from(this.selectedOptions).map(option => option.value);
+    const rows = document.querySelectorAll('#tablaExpertos tr');
+    
+    rows.forEach(row => {
+      if (selectedValues.length === 0 || selectedValues.includes(row.dataset.iso)) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+    
+    // Actualizar contador
+    document.getElementById('totalEvaluadores').textContent = 
+      document.querySelectorAll('#tablaExpertos tr[style=""]').length;
+  });
+</script>
 
 <?php include '../templades/pie.php'; ?>

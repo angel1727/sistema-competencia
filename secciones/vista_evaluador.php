@@ -110,7 +110,7 @@
               <th>Norma</th>
               <th>Organismo</th>
               <th>Correo</th>
-              <th>Acciones</th>
+              <!-- <th>Acciones</th> -->
             </tr>
           </thead>
           <tbody id="tablaExpertos">
@@ -120,14 +120,14 @@
               <td>ISO/IEC 17025</td>
               <td>ICONTEC</td>
               <td>mrodriguez@email.com</td>
-              <td class="text-center">
+              <!-- <td class="text-center">
                 <a href="descargar.php?tipo=pdf&id=1" class="btn btn-sm btn-danger me-1">
                   <i class="bi bi-file-earmark-pdf-fill"></i> PDF
                 </a>
                 <a href="descargar.php?tipo=word&id=1" class="btn btn-sm btn-primary">
                   <i class="bi bi-file-earmark-word-fill"></i> Word
                 </a>
-              </td>
+              </td> -->
             </tr>
             <tr data-iso="17024" data-ciudad="Medellín" data-pais="Colombia" data-lat="6.244203" data-lng="-75.581211">
               <td>Carlos Gómez</td>
@@ -135,14 +135,14 @@
               <td>ISO/IEC 17024</td>
               <td>ONAC</td>
               <td>cgomez@email.com</td>
-              <td class="text-center">
+              <!-- <td class="text-center">
                 <a href="descargar.php?tipo=pdf&id=2" class="btn btn-sm btn-danger me-1">
                   <i class="bi bi-file-earmark-pdf-fill"></i> PDF
                 </a>
                 <a href="descargar.php?tipo=word&id=2" class="btn btn-sm btn-primary">
                   <i class="bi bi-file-earmark-word-fill"></i> Word
                 </a>
-              </td>
+              </td> -->
             </tr>
             <tr data-iso="17020" data-ciudad="Cali" data-pais="Colombia" data-lat="3.451647" data-lng="-76.531982">
               <td>Ana Torres</td>
@@ -150,14 +150,14 @@
               <td>ISO/IEC 17020</td>
               <td>SGS Colombia</td>
               <td>atorres@email.com</td>
-              <td class="text-center">
+              <!-- <td class="text-center">
                 <a href="descargar.php?tipo=pdf&id=3" class="btn btn-sm btn-danger me-1">
                   <i class="bi bi-file-earmark-pdf-fill"></i> PDF
                 </a>
                 <a href="descargar.php?tipo=word&id=3" class="btn btn-sm btn-primary">
                   <i class="bi bi-file-earmark-word-fill"></i> Word
                 </a>
-              </td>
+              </td> -->
             </tr>
             <tr data-iso="17065" data-ciudad="Barranquilla" data-pais="Colombia" data-lat="10.963889" data-lng="-74.796387">
               <td>Jorge Díaz</td>
@@ -165,14 +165,14 @@
               <td>ISO/IEC 17065</td>
               <td>Bureau Veritas</td>
               <td>jdiaz@email.com</td>
-              <td class="text-center">
+              <!-- <td class="text-center">
                 <a href="descargar.php?tipo=pdf&id=4" class="btn btn-sm btn-danger me-1">
                   <i class="bi bi-file-earmark-pdf-fill"></i> PDF
                 </a>
                 <a href="descargar.php?tipo=word&id=4" class="btn btn-sm btn-primary">
                   <i class="bi bi-file-earmark-word-fill"></i> Word
                 </a>
-              </td>
+              </td> -->
             </tr>
           </tbody>
         </table>
@@ -214,25 +214,53 @@
     });
   });
 
-  // Inicializar mapa
-  function initMap() {
-    const colombia = { lat: 4.5709, lng: -74.2973 };
-    const map = new google.maps.Map(document.getElementById('mapaEvaluadores'), {
-      zoom: 5,
-      center: colombia
+// Inicializar mapa con Leaflet
+document.addEventListener('DOMContentLoaded', function() {
+    const map = L.map('mapaEvaluadores').setView([-14.52, -64.65], 5);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    // Icono personalizado
+    const redIcon = L.icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34]
     });
-
-    // Agregar marcadores para cada evaluador
+    
     document.querySelectorAll('#tablaExpertos tr').forEach(row => {
-      if (row.dataset.lat && row.dataset.lng) {
-        const marker = new google.maps.Marker({
-          position: { lat: parseFloat(row.dataset.lat), lng: parseFloat(row.dataset.lng) },
-          map: map,
-          title: row.cells[0].textContent + ' - ' + row.cells[2].textContent
-        });
-      }
+        if (row.dataset.lat && row.dataset.lng) {
+            const marker = L.marker(
+                [parseFloat(row.dataset.lat), parseFloat(row.dataset.lng)], 
+                {icon: redIcon}
+            ).addTo(map);
+            
+            marker.bindPopup(`
+                <b>${row.cells[0].textContent}</b><br>
+                ${row.dataset.ciudad}, ${row.dataset.pais}<br>
+                <small>Norma: ${row.cells[2].textContent}</small>
+            `);
+        }
     });
-  }
+});
+
+document.getElementById('filtroIso').addEventListener('change', function() {
+    const selectedValues = Array.from(this.selectedOptions).map(option => option.value);
+    const rows = document.querySelectorAll('#tablaExpertos tr');
+    
+    rows.forEach(row => {
+        const shouldShow = selectedValues.length === 0 || selectedValues.includes(row.dataset.iso);
+        row.style.display = shouldShow ? '' : 'none';
+        
+        // Para Google Maps: marker.setVisible(shouldShow);
+        // Para Leaflet: shouldShow ? marker.addTo(map) : map.removeLayer(marker);
+    });
+    
+    document.getElementById('totalEvaluadores').textContent = 
+        document.querySelectorAll('#tablaExpertos tr[style=""]').length;
+});
 
   // Filtro de normas
   document.getElementById('filtroIso').addEventListener('change', function() {
