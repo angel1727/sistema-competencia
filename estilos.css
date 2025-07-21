@@ -89,3 +89,17 @@ input[type="email"] {
     color: #6c757d;
     pointer-events: none; /* no interfiere con el cursor */
 }
+
+#video-instructivo {
+  transition: all 0.3s ease;
+}
+#video-instructivo:hover {
+  transform: translateY(-5px);
+}
+.card-header {
+  border-radius: 0.375rem 0.375rem 0 0 !important;
+}
+
+.video-title {
+color: #F36F21; /* Ejemplo de naranja corporativo */
+}

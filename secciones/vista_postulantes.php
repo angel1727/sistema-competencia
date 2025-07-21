@@ -872,7 +872,8 @@
 
                         <!-- Botón PDF -->
                         <a href="generar_pdf.php?id=<?= $postulante['idpostulante'] ?>" target="_blank" class="btn btn-outline-danger btn-sm w-100 mt-2">
-                          <i class="bi bi-file-earmark-pdf-fill me-1"></i> Descargar PDF
+                            <i class="bi bi-file-earmark-pdf-fill me-1"></i> Descargar PDF
+                        </a>
                         </a>
                       </div>
                     </div>
