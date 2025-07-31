@@ -6,6 +6,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Cargar configuración principal
+require_once __DIR__ . '/../app/config/config.php';
+
 // Autocargador simple para clases en app/core y app/controllers
 spl_autoload_register(function ($className) {
     $corePath = __DIR__ . '/../app/core/' . $className . '.php';

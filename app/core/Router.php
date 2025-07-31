@@ -84,7 +84,22 @@ class Router {
      * Despacha la ruta: crea el controlador y ejecuta la acción.
      */
     public function dispatch() {
-        $url = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+        // Obtener la ruta de la URL de la solicitud
+        $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+        // Obtener la ruta base de la constante BASE_URL
+        $base_path = parse_url(BASE_URL, PHP_URL_PATH);
+
+        // Calcular la ruta relativa de la aplicación
+        if (strpos($request_uri, $base_path) === 0) {
+            $url = substr($request_uri, strlen($base_path));
+        } else {
+            $url = $request_uri;
+        }
+
+        // Limpiar la URL de slashes al inicio/final
+        $url = trim($url, '/');
+
         $method = $_SERVER['REQUEST_METHOD'];
 
         if ($this->match($url, $method)) {

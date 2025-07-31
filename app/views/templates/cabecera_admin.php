@@ -74,30 +74,30 @@
     
 <!-- Sidebar lateral -->
 <div class="sidebar">
-    <a class="navbar-brand d-flex align-items-center mb-4" href="/admin/dashboard">
+    <a class="navbar-brand d-flex align-items-center mb-4" href="<?php echo BASE_URL; ?>/admin/dashboard">
         <i class="bi bi-person-circle fs-4 me-2"></i>
         <span class="fw-bold">Panel Admin</span>
     </a>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link active" href="/admin/usuarios"><i class="bi bi-people-fill me-2"></i> Usuario</a>
+            <a class="nav-link active" href="<?php echo BASE_URL; ?>/admin/usuarios"><i class="bi bi-people-fill me-2"></i> Usuario</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/admin/postulantes"><i class="bi bi-person-lines-fill me-2"></i> Postulantes</a>
+            <a class="nav-link" href="<?php echo BASE_URL; ?>/admin/postulantes"><i class="bi bi-person-lines-fill me-2"></i> Postulantes</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/admin/evaluadores"><i class="bi bi-person-badge-fill me-2"></i> Líder Evaluador</a>
+            <a class="nav-link" href="<?php echo BASE_URL; ?>/admin/evaluadores"><i class="bi bi-person-badge-fill me-2"></i> Líder Evaluador</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/admin/expertos"><i class="bi bi-tools me-2"></i> Experto Técnico</a>
+            <a class="nav-link" href="<?php echo BASE_URL; ?>/admin/expertos"><i class="bi bi-tools me-2"></i> Experto Técnico</a>
         </li>
         <li class="nav-item mt-auto">
-            <a class="nav-link text-warning" href="/logout"><i class="bi bi-box-arrow-right me-2"></i> Cerrar Sesión</a>
+            <a class="nav-link text-warning" href="<?php echo BASE_URL; ?>/logout"><i class="bi bi-box-arrow-right me-2"></i> Cerrar Sesión</a>
         </li>
     </ul>
 
     <div class="text-center p-3">
-    <img src="/img/acreditacion.png" alt="IBMETRO" class="img-fluid ibmetro-logo"> <!-- Ruta corregida -->
+    <img src="<?php echo BASE_URL; ?>/img/acreditacion.png" alt="IBMETRO" class="img-fluid ibmetro-logo"> <!-- Ruta corregida -->
     </div>
 </div>
 
